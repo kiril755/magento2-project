@@ -1,0 +1,10 @@
+"Wholesale request","Заява на отп",theme,frontend/Project/Ua
+"Wholesale form request","Заява на отп",theme,frontend/Project/Ua
+"INN:","ІПН:",theme,frontend/Project/Ua
+"Text:","Текст:",theme,frontend/Project/Ua
+"Describe please, why you need a wholesale group","Опишіть будь ласка, чому вам потрібна оптова група",theme,frontend/Project/Ua
+"Submit","Надіслати",theme,frontend/Project/Ua
+", your request successfully sent, please wait for the answer!",", ваш запит успішно надіслано, очікуйте на відповідь!",theme,frontend/Project/Ua
+"Your request on pending status, please, wait for the answer.","Ваш запит в статусі обробки, будь ласка, очікуйте відповіді.",theme,frontend/Project/Ua
+"Your request is success, now you are in customer wholesale group!","Ваш запит підтверджено, відтепер ви належите до оптової групи користувачів!",theme,frontend/Project/Ua
+"Your request has been denied.","Ваш запит відхилено.",theme,frontend/Project/Ua

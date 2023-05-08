@@ -1,0 +1,19 @@
+<?php if (count($block->getData('requests'))):?>
+    <h3>Also, don't forget to approve or reject the requests down below:</h3>
+    <table class="request-container">
+    <tr class="tabel-raw-request_info">
+        <th class="table-header-id">Id</th>
+        <th class="table-header-nickname">Name</th>
+        <th class="table-header-inn">Inn</th>
+        <th class="table-header-text">Text</th>
+    </tr>
+<?php foreach ($block->getData('requests') as $request): ?>
+    <tr class="tabel-raw-request">
+        <td class="table-data"><?= $block->escapeHtml($request['id']) ?></td>
+        <td class="table-data"><?= $block->escapeHtml($request['name']) ?></td>
+        <td class="table-data"><?= $block->escapeHtml($request['inn']) ?></td>
+        <td class="table-data"><?= $block->escapeHtml($request['text']) ?></td>
+    </tr>
+<?php endforeach; ?>
+    </table>
+<?php endif;?>

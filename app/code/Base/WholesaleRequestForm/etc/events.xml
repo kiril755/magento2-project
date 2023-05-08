@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="wholesale_request_event_before">
+        <observer name="change_customer_group" instance="Base\WholesaleRequestForm\Observer\ChangeCustomerGroup"/>
+    </event>
+    <event name="request_send_email">
+        <observer name="send_email" instance="Base\WholesaleRequestForm\Observer\SendEmail" />
+    </event>
+</config>

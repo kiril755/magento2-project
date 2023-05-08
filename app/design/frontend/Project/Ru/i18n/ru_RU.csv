@@ -1,0 +1,10 @@
+"Wholesale request","Заявление на опт",theme,frontend/Project/Ua
+"Wholesale form request","Заявление на опт",theme,frontend/Project/Ua
+"INN:","ИНН:",theme,frontend/Project/Ua
+"Text:","Текст:",theme,frontend/Project/Ua
+"Describe please, why you need a wholesale group","Опишите пожалуйста, почему вам нужна оптовая группа",theme,frontend/Project/Ua
+"Submit","Отправить",theme,frontend/Project/Ua
+", your request successfully sent, please wait for the answer!",", ваш запрос успешно отправлен, ждите ответа!",theme,frontend/Project/Ua
+"Your request on pending status, please, wait for the answer.","Ваш запрос в статусе обработки, пожалуйста, ждите ответа.",theme,frontend/Project/Ua
+"Your request is success, now you are in customer wholesale group!","Ваш запрос подтвержден, теперь вы относитесь к оптовой группе пользователей!",theme,frontend/Project/Ua
+"Your request has been denied.","Ваш запрос отклонен.",theme,frontend/Project/Ua

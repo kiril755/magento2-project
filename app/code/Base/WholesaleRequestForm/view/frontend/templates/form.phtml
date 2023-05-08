@@ -1,0 +1,32 @@
+<?php
+/**
+ * @var \Base\WholesaleRequestForm\Block\Form $block
+ */
+?>
+<div class="wholesale_request-container">
+    <?php if ($block->isRequestSent()): ?>
+        <p class="request-status"><?php echo $block->escapeHtml(__($block->requestStatusMessage())) ?></p>
+    <?php else: ?>
+        <form id="my-form" method="POST" data-mage-init='{"validation": {}}'>
+            <div class="form-group">
+                <label for="inn"><?php echo $block->escapeHtml(__('INN:')); ?></label>
+                <input type="number" class="form-control" id="inn" name="inn" data-validate="{'required':true}">
+            </div>
+            <div class="form-group">
+                <label for="text"><?php echo $block->escapeHtml(__('Text:')); ?></label>
+                <textarea class="form-control" id="text" name="text" rows="5" data-validate="{'required':true}"
+                          placeholder="<?php echo $block->escapeHtml(__('Describe please, why you need a wholesale group')); ?>"></textarea>
+            </div>
+            <input type="submit" id="submit-btn" class="btn btn-primary" name="submit-btn"
+                   value="<?php echo $block->escapeHtml(__('Submit')); ?>">
+        </form>
+        <script type="text/x-magento-init">
+    {
+        "*": {
+            "Base_WholesaleRequestForm/js/send-request" : {}
+        }
+    }
+
+        </script>
+    <?php endif; ?>
+</div>
