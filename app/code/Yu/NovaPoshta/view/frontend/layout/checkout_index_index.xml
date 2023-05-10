@@ -80,12 +80,12 @@
                                                                 </item>
                                                                 <item name="country_id" xsi:type="array">
                                                                     <item name="config" xsi:type="array">
-                                                                        <item name="visible" xsi:type="boolean">true</item>
+                                                                        <item name="visible" xsi:type="boolean">false</item>
                                                                     </item>
                                                                 </item>
                                                                 <item name="postcode" xsi:type="array">
                                                                     <item name="config" xsi:type="array">
-                                                                        <item name="visible" xsi:type="boolean">true</item>
+                                                                        <item name="visible" xsi:type="boolean">false</item>
                                                                     </item>
                                                                 </item>
                                                                 <item name="company" xsi:type="array">
