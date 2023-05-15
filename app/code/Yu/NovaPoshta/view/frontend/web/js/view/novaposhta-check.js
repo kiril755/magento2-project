@@ -12,6 +12,7 @@ define([
 
         defaults: {
             cityDefault: true,
+            state: true,
             cityNovaposhta: false,
             streetDefault: true,
             street: '',
@@ -19,6 +20,7 @@ define([
             valueMap: {false: '', true: 'Нова Пошта'},
             exports: {
                 "cityDefault": "${ $.parentName }.city:visible",
+                "state": "${ $.parentName }.state:visible",
                 "cityNovaposhta": "${ $.parentName }.city_novaposhta_ref:visible",
                 "streetDefault": "${ $.parentName }.street:visible",
                 "street": "${ $.parentName }.street.0:value"
@@ -33,6 +35,7 @@ define([
         initObservable: function () {
             this._super();
             this.observe('cityDefault');
+            this.observe('state');
             this.observe('cityNovaposhta');
             this.observe('streetDefault');
             this.observe('street');
@@ -45,6 +48,7 @@ define([
             var check = 0;
             if (this.value() !== '') {
                 this.cityDefault(false);
+                this.state(false);
                 this.streetDefault(false);
                 this.cityNovaposhta(true);
                 this.street('-');
@@ -52,6 +56,7 @@ define([
                 check = 1;
             } else {
                 this.cityDefault(true);
+                this.state(true);
                 this.streetDefault(true);
                 this.cityNovaposhta(false);
                 $(".street").show();

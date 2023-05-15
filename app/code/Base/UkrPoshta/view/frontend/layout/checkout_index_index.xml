@@ -1,0 +1,125 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Base_UkrPoshta::css/custom.css"></css>
+    </head>
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="shippingMethodItemTemplate" xsi:type="string">Base_UkrPoshta/shipping-address/shipping-method-item</item>
+                                                    </item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="address-list" xsi:type="array">
+                                                            <item name="config" xsi:type="array">
+                                                                <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="address-list-additional-addresses" xsi:type="array">
+                                                            <item name="config" xsi:type="array">
+                                                                <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="shipping-address-fieldset" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="street" xsi:type="array">
+                                                                    <item name="visible" xsi:type="boolean">false</item>
+                                                                </item>
+                                                                <item name="city" xsi:type="array">
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="country_id" xsi:type="array">
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="visible" xsi:type="boolean">false</item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="postcode" xsi:type="array">
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="visible" xsi:type="boolean">false</item>
+                                                                    </item>
+                                                                    <item name="validation" xsi:type="array">
+                                                                        <item name="required-entry" xsi:type="boolean">false</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="custom-shipping-method-fields" xsi:type="array">
+                                                            <item name="component" xsi:type="string">uiComponent</item>
+                                                            <item name="displayArea" xsi:type="string">custom-shipping-method-fields</item>
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="ukrposhta_street_field" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="customScope" xsi:type="string">shippingAddress.extension_attributes</item>
+                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                                                    </item>
+                                                                    <item name="dataScope" xsi:type="string">shippingAddress.extension_attributes.ukrposhta_street_field</item>
+                                                                    <item name="label" xsi:type="string">Вулиця</item>
+                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                    <item name="visible" xsi:type="boolean">true</item>
+                                                                    <item name="validation" xsi:type="array">
+                                                                        <item name="required-entry" xsi:type="boolean">true</item>
+                                                                    </item>
+                                                                    <item name="sortOrder" xsi:type="number">3</item>
+                                                                </item>
+                                                                <item name="ukrposhta_house_number_field" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="customScope" xsi:type="string">shippingAddress.extension_attributes</item>
+                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                                                    </item>
+                                                                    <item name="dataScope" xsi:type="string">shippingAddress.extension_attributes.ukrposhta_house_number_field</item>
+                                                                    <item name="label" xsi:type="string">Номер будинку</item>
+                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                    <item name="visible" xsi:type="boolean">true</item>
+                                                                    <item name="validation" xsi:type="array">
+                                                                        <item name="required-entry" xsi:type="boolean">true</item>
+                                                                        <item name="validate-number" xsi:type="boolean">true</item>
+                                                                    </item>
+                                                                    <item name="sortOrder" xsi:type="number">4</item>
+                                                                </item>
+                                                                <item name="ukrposhta_apartment_number_field" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="customScope" xsi:type="string">shippingAddress.extension_attributes</item>
+                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                                                    </item>
+                                                                    <item name="dataScope" xsi:type="string">shippingAddress.extension_attributes.ukrposhta_apartment_number_field</item>
+                                                                    <item name="label" xsi:type="string">Номер квартири</item>
+                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                    <item name="visible" xsi:type="boolean">true</item>
+                                                                    <item name="validation" xsi:type="array">
+                                                                        <item name="required-entry" xsi:type="boolean">false</item>
+                                                                        <item name="validate-number" xsi:type="boolean">true</item>
+                                                                    </item>
+                                                                    <item name="sortOrder" xsi:type="number">5</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

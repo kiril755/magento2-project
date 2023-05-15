@@ -41,6 +41,7 @@ define([
 
             if (selectedMethodCode === 'novaposhta_to_warehouse') {
                 city.loadCityWarehouses(this);
+                $("#custom-shipping-method-fields-details-list-wrapper").hide;
             }
             return selectedMethodCode;
         },

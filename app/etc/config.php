@@ -327,6 +327,7 @@ return [
         'Magento_Wishlist' => 1,
         'Magento_WishlistAnalytics' => 1,
         'Magento_WishlistGraphQl' => 1,
+        'Base_UkrPoshta' => 1,
         'Base_WholesaleRequestForm' => 1,
         'Mageplaza_Core' => 1,
         'Mageplaza_Smtp' => 1,
