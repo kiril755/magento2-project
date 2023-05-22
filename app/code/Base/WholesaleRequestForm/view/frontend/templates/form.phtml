@@ -3,11 +3,18 @@
  * @var \Base\WholesaleRequestForm\Block\Form $block
  */
 ?>
+
 <div class="wholesale_request-container">
     <?php if ($block->isRequestSent()): ?>
         <p class="request-status"><?php echo $block->escapeHtml(__($block->requestStatusMessage())) ?></p>
     <?php else: ?>
+        <div class="custom-google_maps" >
+            <p class="custom-google_maps-title">Please, choose your location:</p>
+            <div id="map"></div>
+        </div>
         <form id="my-form" method="POST" data-mage-init='{"validation": {}}'>
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
             <div class="form-group">
                 <label for="inn"><?php echo $block->escapeHtml(__('INN:')); ?></label>
                 <input type="number" class="form-control" id="inn" name="inn" data-validate="{'required':true}">
@@ -43,12 +50,45 @@
                    value="<?php echo $block->escapeHtml(__('Submit')); ?>">
         </form>
         <script type="text/x-magento-init">
-    {
-        "*": {
-            "Base_WholesaleRequestForm/js/send-request" : {}
-        }
-    }
+            {
+                "*": {
+                    "Base_WholesaleRequestForm/js/send-request" : {}
+                }
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsITeocaRiIlka_inElQdA6Gk3H5nk2aw&callback=initMap&v=weekly" async defer></script>
+        <script>
+            function initMap() {
+                const myLatlng = { lat: 49, lng: 32 };
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 5,
+                    center: myLatlng,
+                });
+                let infoWindow = new google.maps.InfoWindow({
+                    content: "Click the map to get Lat/Lng!",
+                    position: myLatlng,
+                });
 
+                infoWindow.open(map);
+                map.addListener("click", (mapsMouseEvent) => {
+                    infoWindow.close();
+                    infoWindow = new google.maps.InfoWindow({
+                        position: mapsMouseEvent.latLng,
+                    });
+                    infoWindow.setContent(
+                        JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+                    );
+                    infoWindow.open(map);
+
+                    const latitudeInput = document.getElementById("latitude");
+                    const longitudeInput = document.getElementById("longitude");
+
+                    latitudeInput.value = mapsMouseEvent.latLng.lat();
+                    longitudeInput.value = mapsMouseEvent.latLng.lng();
+                });
+            }
+
+            window.initMap = initMap;
         </script>
     <?php endif; ?>
 </div>

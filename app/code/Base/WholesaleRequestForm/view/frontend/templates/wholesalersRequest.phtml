@@ -12,7 +12,7 @@ $wholesalers = $block->getWholesalersData();
                      alt="image"
                      src="<?php echo $block->getBaseUrlForImage() . $wholesaler['image'] ?>"/>
             <?php else: ?>
-                <img width="100" height="100"
+                <img class="company-image" width="100" height="100"
                      alt="image"
                      src="<?php echo $block->getBaseUrlForImage() . "base/wholesalerequestform/default/default-image.png" ?>"/>
             <?php endif; ?>
@@ -28,6 +28,8 @@ $wholesalers = $block->getWholesalersData();
             <p class="wholesalers-email">
                 <?php echo $block->escapeHtml(__($wholesaler['email'])) ?>
             </p>
+            <p hidden="hidden" class="latitude"><?php echo $block->escapeHtml($wholesaler['location_latitude']) ?></p>
+            <p hidden="hidden" class="longitude"><?php echo $block->escapeHtml($wholesaler['location_longitude']) ?></p>
         </li>
     <?php endforeach; ?>
     <?php else: ?>

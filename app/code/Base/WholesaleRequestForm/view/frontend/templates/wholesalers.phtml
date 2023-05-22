@@ -23,6 +23,12 @@
         </ul>
     </div>
     <div class="wholesalers">
+        <?php if ($block->getWholesalersCollection()): ?>
+        <div class="custom-google_maps-wholesalers" >
+            <p class="custom-google_maps-title-wholesalers">Wholesalers in map:</p>
+            <div id="map"></div>
+        </div>
+        <?php endif; ?>
         <ul class="wholesalers-list">
             <?php if ($block->getWholesalersCollection()): ?>
                 <?php foreach ($block->getWholesalersCollection() as $wholesalers): ?>
@@ -32,7 +38,7 @@
                                  alt="image"
                                  src="<?php echo $block->getBaseUrlForImage() . $wholesalers['image'] ?>"/>
                         <?php else: ?>
-                            <img width="100" height="100"
+                            <img class="company-image" width="100" height="100"
                                  alt="image"
                                  src="<?php echo $block->getBaseUrlForImage() . "base/wholesalerequestform/default/default-image.png" ?>"/>
                         <?php endif; ?>
@@ -48,6 +54,8 @@
                         <p class="wholesalers-email">
                             <?php echo $block->escapeHtml(__($wholesalers['email'])) ?>
                         </p>
+                        <p hidden="hidden" class="latitude"><?php echo $block->escapeHtml($wholesalers['location_latitude']) ?></p>
+                        <p hidden="hidden" class="longitude"><?php echo $block->escapeHtml($wholesalers['location_longitude']) ?></p>
                     </li>
                 <?php endforeach; ?>
             <?php endif; ?>
@@ -61,4 +69,42 @@
             "Base_WholesaleRequestForm/js/show-wholesalers" : {}
         }
     }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsITeocaRiIlka_inElQdA6Gk3H5nk2aw&callback=initMap&v=weekly" async defer></script>
+<script>
+    async function initMap() {
+
+            const { Map } = await google.maps.importLibrary("maps");
+
+            const map = new Map(document.getElementById("map"), {
+                zoom: 5,
+                center: { lat: 49, lng: 32 },
+                mapId: "DEMO_MAP_ID",
+            });
+
+            const wholesalersItems = document.getElementsByClassName("wholesalers-item");
+            const company = document.querySelector(".wholesalers-company")
+
+            if (company != null) {
+                for (let i = 0; i < wholesalersItems.length; i++) {
+                    const wholesalersItem = wholesalersItems[i];
+                    const latitude = parseFloat(wholesalersItem.querySelector(".latitude").textContent);
+                    const longitude = parseFloat(wholesalersItem.querySelector(".longitude").textContent);
+                    const companyName = wholesalersItem.querySelector(".wholesalers-company").textContent
+
+                    const position = {lat: latitude, lng: longitude};
+
+                    const marker = new google.maps.Marker({
+                        map: map,
+                        position: position,
+                        label: {
+                            fontWeight: 'bold',
+                            text: companyName,
+                        },
+                    });
+                }
+            }
+    }
+
+    window.initMap = initMap;
 </script>

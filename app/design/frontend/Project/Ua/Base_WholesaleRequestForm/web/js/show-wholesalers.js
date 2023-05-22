@@ -23,6 +23,7 @@ define(['jquery','domReady', 'mage/url'], function ($, domReady, urlBuilder) {
                             $(".wholesalers-list").append(response.success)
                             $(".active").removeClass("active");
                             currentItem.addClass("active");
+                            initMap();
                             window.scrollTo(0, 0);
                             console.log('success')
                         } else {

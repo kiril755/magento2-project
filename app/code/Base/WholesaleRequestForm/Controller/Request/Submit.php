@@ -110,6 +110,14 @@ class Submit implements HttpPostActionInterface
                 $IdCardImage = null;
             }
 
+            if ($data['latitude'] != "" && $data['longitude'] != "") {
+                $latitude = $data['latitude'];
+                $longitude = $data['longitude'];
+            } else {
+                $latitude = "50.450001";
+                $longitude = "30.523333";
+            }
+
             $item = $this->requestFactory->create();
             $item->setStore($storeName);
             $item->setStoreId($storeId);
@@ -122,6 +130,8 @@ class Submit implements HttpPostActionInterface
             }
             $item->setRegion($data['region']);
             $item->setCity($data['city']);
+            $item->setLocationLatitude($latitude);
+            $item->setLocationLongitude($longitude);
             $item->setCompany($data['company']);
             $item->setText($data['text']);
             $item->save();

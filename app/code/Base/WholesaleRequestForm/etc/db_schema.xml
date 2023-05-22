@@ -12,6 +12,8 @@
         <column xsi:type="varchar" name="image" nullable="true" default="null" length="255" comment="Image"/>
         <column xsi:type="varchar" name="region" nullable="false" length="255" comment="Region"/>
         <column xsi:type="varchar" name="city" nullable="false" length="255" comment="City"/>
+        <column xsi:type="varchar" name="location_latitude" nullable="false" comment="Location latitude"/>
+        <column xsi:type="varchar" name="location_longitude" nullable="false" comment="Location longitude"/>
         <column xsi:type="varchar" name="company" nullable="false" length="255" comment="Company"/>
         <column xsi:type="text" name="text" nullable="false" comment="Request text"/>
         <column xsi:type="varchar" name="status" nullable="false" default="pending" comment="Request status"/>
