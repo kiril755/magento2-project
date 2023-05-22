@@ -22,9 +22,21 @@
 
 <!-- ko if: method.method_code=='customshipping' -->
 <tr class="custom-shipping-method-fields-shipping-information" >
-    <td colspan="4">
+    <td style="border-top: none;padding-top: 0px;" colspan="4">
         <div id="custom-shipping-method-fields-details-list-wrapper" data-bind="visible: method.method_code + '_' + method.carrier_code == 'customshipping_customshipping'">
             <!-- ko foreach: element.getRegion('custom-shipping-method-fields') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+    </td>
+</tr>
+<!-- /ko -->
+
+<!-- ko if: method.method_code=='freeshipping' -->
+<tr class="free-shipping-method-fields-shipping-information" >
+    <td style="border-top: none;padding-top: 0px;" colspan="4">
+        <div id="free-shipping-method-fields-details-list-wrapper" data-bind="visible: method.method_code + '_' + method.carrier_code == 'freeshipping_freeshipping'">
+            <!-- ko foreach: element.getRegion('free-shipping-method-fields') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
         </div>

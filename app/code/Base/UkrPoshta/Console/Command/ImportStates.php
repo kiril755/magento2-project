@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Base\UkrPoshta\Console\Command;
 
@@ -11,9 +12,17 @@ use Magento\Framework\Console\Cli;
 
 class ImportStates extends Command
 {
+    /**
+     * @var StateFactory
+     * @var Curl
+     */
     private $stateFactory;
     private $curl;
 
+    /**
+     * @param StateFactory $stateFactory
+     * @param Curl $curl
+     */
     public function __construct(StateFactory $stateFactory, Curl $curl)
     {
         parent::__construct();
@@ -21,13 +30,23 @@ class ImportStates extends Command
         $this->curl = $curl;
     }
 
-    protected function configure()
+    /**
+     * @return void
+     */
+    protected function configure() : void
     {
         $this->setName('import:ua:states');
         $this->setDescription('Import ua states to database');
         parent::configure();
     }
-    protected function execute(InputInterface $input, OutputInterface $output)
+
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     * @throws \Exception
+     */
+    protected function execute(InputInterface $input, OutputInterface $output) : int
     {
         $url = 'https://decentralization.gov.ua/graphql?query={areas{title,id,square,population,local_community_count,percent_communities_from_area,sum_communities_square}}';
         $this->curl->post($url, '');

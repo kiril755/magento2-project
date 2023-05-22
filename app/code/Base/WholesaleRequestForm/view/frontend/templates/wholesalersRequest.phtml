@@ -1,0 +1,37 @@
+<?php
+/**
+ * @var \Base\WholesaleRequestForm\Block\Wholesalers\Request $block
+ */
+$wholesalers = $block->getWholesalersData();
+?>
+<?php if(count($wholesalers)): ?>
+    <?php foreach ($wholesalers as $wholesaler): ?>
+        <li class="wholesalers-item">
+            <?php if ($wholesaler['image'] != "null"): ?>
+                <img class="company-image" width="100" height="100"
+                     alt="image"
+                     src="<?php echo $block->getBaseUrlForImage() . $wholesaler['image'] ?>"/>
+            <?php else: ?>
+                <img width="100" height="100"
+                     alt="image"
+                     src="<?php echo $block->getBaseUrlForImage() . "base/wholesalerequestform/default/default-image.png" ?>"/>
+            <?php endif; ?>
+            <p class="wholesalers-company">
+                <?php echo $block->escapeHtml(__($wholesaler['company'])) ?>
+            </p>
+            <p class="wholesalers-city">
+                <?php echo $block->escapeHtml(__($wholesaler['city'])) ?>
+            </p>
+            <p class="wholesalers-name">
+                <?php echo $block->escapeHtml(__($wholesaler['name'])) ?>
+            </p>
+            <p class="wholesalers-email">
+                <?php echo $block->escapeHtml(__($wholesaler['email'])) ?>
+            </p>
+        </li>
+    <?php endforeach; ?>
+    <?php else: ?>
+    <li class="wholesalers-item">
+        <p>No one wholesalers in these region :(</p>
+    </li>
+<?php endif; ?>

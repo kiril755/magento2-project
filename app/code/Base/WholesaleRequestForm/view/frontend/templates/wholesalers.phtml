@@ -1,0 +1,64 @@
+<?php
+/**
+ * @var \Base\WholesaleRequestForm\Block\Wholesalers\Index $block
+ */
+?>
+
+<div class="wholesalers-container">
+    <div class="wholesalers-region">
+        <h3 class="region-title"><?php echo $block->escapeHtml(__("Wholesalers by region:")) ?></h3>
+        <ul class="region-list">
+            <li class="region-item active" data-state="0">
+                <p class="region-name">
+                    <?php echo $block->escapeHtml(__('All regions')) ?>
+                </p>
+            </li>
+            <?php foreach ($block->getRegionCollection() as $region): ?>
+                <li class="region-item" data-state="<?php echo $region['state']; ?>">
+                    <p class="region-name">
+                        <?php echo $block->escapeHtml(__($region['state'])) ?>
+                    </p>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <div class="wholesalers">
+        <ul class="wholesalers-list">
+            <?php if ($block->getWholesalersCollection()): ?>
+                <?php foreach ($block->getWholesalersCollection() as $wholesalers): ?>
+                    <li class="wholesalers-item">
+                        <?php if ($wholesalers['image'] != "null"): ?>
+                            <img class="company-image" width="100" height="100"
+                                 alt="image"
+                                 src="<?php echo $block->getBaseUrlForImage() . $wholesalers['image'] ?>"/>
+                        <?php else: ?>
+                            <img width="100" height="100"
+                                 alt="image"
+                                 src="<?php echo $block->getBaseUrlForImage() . "base/wholesalerequestform/default/default-image.png" ?>"/>
+                        <?php endif; ?>
+                        <p class="wholesalers-company">
+                            <?php echo $block->escapeHtml(__($wholesalers['company'])) ?>
+                        </p>
+                        <p class="wholesalers-city">
+                            <?php echo $block->escapeHtml(__($wholesalers['city'])) ?>
+                        </p>
+                        <p class="wholesalers-name">
+                            <?php echo $block->escapeHtml(__($wholesalers['name'])) ?>
+                        </p>
+                        <p class="wholesalers-email">
+                            <?php echo $block->escapeHtml(__($wholesalers['email'])) ?>
+                        </p>
+                    </li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </ul>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Base_WholesaleRequestForm/js/show-wholesalers" : {}
+        }
+    }
+</script>

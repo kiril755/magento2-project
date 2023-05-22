@@ -12,6 +12,9 @@ use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Event\ManagerInterface;
 use Magento\Customer\Model\Session;
 use Magento\Store\Model\StoreManagerInterface;
+use Magento\Framework\App\Filesystem\DirectoryList;
+use Magento\MediaStorage\Model\File\UploaderFactory;
+use Magento\Framework\Filesystem;
 
 class Submit implements HttpPostActionInterface
 {
@@ -23,6 +26,8 @@ class Submit implements HttpPostActionInterface
      * @var ManagerInterface
      * @var Session
      * @var StoreManagerInterface
+     * @var UploaderFactory
+     * @var Filesystem
      */
     private $jsonFactory;
     private $request;
@@ -31,6 +36,8 @@ class Submit implements HttpPostActionInterface
     private $eventManager;
     private $customerSession;
     private $storeManager;
+    private $fileUploaderFactory;
+    private $filesystem;
 
     /**
      * @param JsonFactory $jsonFactory
@@ -40,6 +47,8 @@ class Submit implements HttpPostActionInterface
      * @param ManagerInterface $eventManager
      * @param Session $customerSession
      * @param StoreManagerInterface $storeManager
+     * @param UploaderFactory $fileUploaderFactory
+     * @param Filesystem $filesystem
      */
     public function __construct(
         JsonFactory $jsonFactory,
@@ -48,7 +57,9 @@ class Submit implements HttpPostActionInterface
         PageFactory $resultPageFactory,
         ManagerInterface $eventManager,
         Session $customerSession,
-        StoreManagerInterface $storeManager
+        StoreManagerInterface $storeManager,
+        UploaderFactory $fileUploaderFactory,
+        Filesystem $filesystem
     )
     {
         $this->jsonFactory = $jsonFactory;
@@ -58,6 +69,8 @@ class Submit implements HttpPostActionInterface
         $this->eventManager = $eventManager;
         $this->customerSession = $customerSession;
         $this->storeManager = $storeManager;
+        $this->fileUploaderFactory = $fileUploaderFactory;
+        $this->filesystem = $filesystem;
     }
 
     /**
@@ -69,10 +82,10 @@ class Submit implements HttpPostActionInterface
 
         $result = $this->jsonFactory->create();
         $resultPage = $this->resultPageFactory->create();
+
         try {
 
-            $personalIncomeTax = $this->request->getParam('personalIncomeTax');
-            $text = $this->request->getParam('text');
+            $data = $this->request->getParams();
 
             $storeName = $this->storeManager->getStore()->getName();
             $storeId = $this->storeManager->getStore()->getId();
@@ -83,14 +96,34 @@ class Submit implements HttpPostActionInterface
                 $customerEmail = $this->customerSession->getCustomer()->getEmail();
             }
 
+            if(isset($_FILES['id-image']['name']) && $_FILES['id-image']['name'] != '') {
+                $uploader = $this->fileUploaderFactory->create(['fileId' => 'id-image']);
+                $uploader->setAllowedExtensions(['jpg', 'jpeg', 'png']);
+                $uploader->setAllowRenameFiles(false);
+                $uploader->setFilesDispersion(false);
+                $mediaDirectory = $this->filesystem->getDirectoryRead(DirectoryList::MEDIA);
+                $destinationPath = $mediaDirectory->getAbsolutePath('base/wholesalerequestform');
+                $resultOfUploader = $uploader->save($destinationPath);
+                $imagePath = 'base/wholesalerequestform/'.$resultOfUploader['file'];
+                $IdCardImage = $imagePath;
+            } else {
+                $IdCardImage = null;
+            }
+
             $item = $this->requestFactory->create();
             $item->setStore($storeName);
             $item->setStoreId($storeId);
             $item->setCustomerId($customerId);
             $item->setName($customerName);
             $item->setEmail($customerEmail);
-            $item->setPersonalIncomeTax($personalIncomeTax);
-            $item->setText($text);
+            $item->setPersonalIncomeTax($data['inn']);
+            if ($IdCardImage != null) {
+                $item->setImage($IdCardImage);
+            }
+            $item->setRegion($data['region']);
+            $item->setCity($data['city']);
+            $item->setCompany($data['company']);
+            $item->setText($data['text']);
             $item->save();
 
             $this->eventManager->dispatch('request_send_email', ['object' => $item]);

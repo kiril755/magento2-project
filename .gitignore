@@ -33,6 +33,7 @@ atlassian*
 /.php_cs.cache
 /grunt-config.json
 /pub/media/*
+!/pub/media/base
 /pub/media/AmzonProductVariationImages/*
 !/pub/media/.htaccess
 /pub/media/attribute/*

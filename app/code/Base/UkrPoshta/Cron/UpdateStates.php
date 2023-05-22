@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Base\UkrPoshta\Cron;
 
@@ -7,16 +8,28 @@ use Magento\Framework\HTTP\Client\Curl;
 
 class UpdateStates
 {
+    /**
+     * @var StateFactory
+     * @var Curl
+     */
     private $stateFactory;
     private $curl;
 
+    /**
+     * @param StateFactory $stateFactory
+     * @param Curl $curl
+     */
     public function __construct(StateFactory $stateFactory, Curl $curl)
     {
         $this->stateFactory = $stateFactory;
         $this->curl = $curl;
     }
 
-    public function execute() {
+    /**
+     * @return void
+     * @throws \Exception
+     */
+    public function execute() : void {
         $url = 'https://decentralization.gov.ua/graphql?query={areas{title,id,square,population,local_community_count,percent_communities_from_area,sum_communities_square}}';
         $this->curl->post($url, '');
         $response = $this->curl->getBody();

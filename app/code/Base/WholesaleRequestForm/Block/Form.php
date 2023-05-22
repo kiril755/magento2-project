@@ -9,6 +9,7 @@ use Magento\Backend\Block\Template\Context;
 use Magento\Customer\Model\Session as CustomerSession;
 use Magento\Store\Model\StoreManagerInterface;
 use Base\WholesaleRequestForm\Model\RequestFactory;
+use Base\UkrPoshta\Model\ResourceModel\State\CollectionFactory as StateCollectionFactory;
 
 class Form extends Template
 {
@@ -19,16 +20,27 @@ class Form extends Template
      * @var CustomerSession
      * @var storeManager
      * @var RequestFactory
+     * @var StateCollectionFactory
      */
     private $customerSession;
     private $storeManager;
     private $requestFactory;
+    private $stateCollection;
 
+    /**
+     * @param Context $context
+     * @param CustomerSession $customerSession
+     * @param StoreManagerInterface $storeManager
+     * @param RequestFactory $requestFactory
+     * @param StateCollectionFactory $stateCollection
+     * @param array $data
+     */
     public function __construct(
         Context $context,
         CustomerSession $customerSession,
         StoreManagerInterface $storeManager,
         RequestFactory $requestFactory,
+        StateCollectionFactory $stateCollection,
         array $data = []
     )
     {
@@ -36,6 +48,13 @@ class Form extends Template
         $this->customerSession = $customerSession;
         $this->storeManager = $storeManager;
         $this->requestFactory = $requestFactory;
+        $this->stateCollection = $stateCollection;
+    }
+
+    public function statesCollection () : array {
+        $collection = $this->stateCollection->create();
+        $stateArr = $collection->getData();
+        return $stateArr;
     }
     public function isRequestSent() : ?string {
         $customerId = $this->customerSession->getCustomer()->getId();

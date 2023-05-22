@@ -1,0 +1,10 @@
+#carriers_customshipping-head::after {
+    content: '';
+    background:url('../images/Ukrposhta-ua-icon.png');
+    background-size:cover;
+    position: absolute;
+    width: 24px;
+    height: 34px;
+    top: 14px;
+    left: 96px;
+}

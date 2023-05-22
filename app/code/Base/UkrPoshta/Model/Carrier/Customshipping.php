@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Base\UkrPoshta\Model\Carrier;
 
@@ -6,29 +7,17 @@ use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Carrier\AbstractCarrier;
 use Magento\Shipping\Model\Carrier\CarrierInterface;
 
-/**
- * Custom shipping model
- */
 class Customshipping extends AbstractCarrier implements CarrierInterface
 {
     /**
      * @var string
-     */
-    protected $_code = 'customshipping';
-
-    /**
      * @var bool
-     */
-    protected $_isFixed = true;
-
-    /**
      * @var \Magento\Shipping\Model\Rate\ResultFactory
-     */
-    private $rateResultFactory;
-
-    /**
      * @var \Magento\Quote\Model\Quote\Address\RateResult\MethodFactory
      */
+    protected $_code = 'customshipping';
+    protected $_isFixed = true;
+    private $rateResultFactory;
     private $rateMethodFactory;
 
     /**
@@ -54,12 +43,10 @@ class Customshipping extends AbstractCarrier implements CarrierInterface
     }
 
     /**
-     * Custom Shipping Rates Collector
-     *
      * @param RateRequest $request
      * @return \Magento\Shipping\Model\Rate\Result|bool
      */
-    public function collectRates(RateRequest $request)
+    public function collectRates(RateRequest $request) : \Magento\Shipping\Model\Rate\Result|bool
     {
         if (!$this->getConfigFlag('active')) {
             return false;
@@ -71,6 +58,8 @@ class Customshipping extends AbstractCarrier implements CarrierInterface
         /** @var \Magento\Quote\Model\Quote\Address\RateResult\Method $method */
         $method = $this->rateMethodFactory->create();
 
+        $totalAmount = $request->getPackageValue();
+
         $method->setCarrier($this->_code);
         $method->setCarrierTitle($this->getConfigData('title'));
 
@@ -79,8 +68,13 @@ class Customshipping extends AbstractCarrier implements CarrierInterface
 
         $shippingCost = (float)$this->getConfigData('shipping_cost');
 
-        $method->setPrice($shippingCost);
-        $method->setCost($shippingCost);
+        if ($totalAmount > $this->getConfigData('free_shipping_min_amount')) {
+            $method->setPrice(0.00);
+            $method->setCost(0.00);
+        } else {
+            $method->setPrice($shippingCost);
+            $method->setCost($shippingCost);
+        }
 
         $result->append($method);
 
@@ -90,7 +84,7 @@ class Customshipping extends AbstractCarrier implements CarrierInterface
     /**
      * @return array
      */
-    public function getAllowedMethods()
+    public function getAllowedMethods() : array
     {
         return [$this->_code => $this->getConfigData('name')];
     }

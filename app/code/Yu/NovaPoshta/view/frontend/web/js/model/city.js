@@ -19,7 +19,7 @@ define([
         cities: [],
 
         getCityRef: function () {
-            var ref = registry.get('checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.city_novaposhta_ref').value();
+            var ref = registry.get('checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.city_novaposhta_ref');
             return ref;
         },
 

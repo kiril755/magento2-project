@@ -43,6 +43,7 @@ define([
             return this;
         },
 
+
         onExtendedValueChanged: function (newExportedValue) {
             this._super(newExportedValue);
             var check = 0;
@@ -53,6 +54,12 @@ define([
                 this.cityNovaposhta(true);
                 this.street('-');
                 $(".street").hide();
+                // $("[name='custom_attributes[ukrposhta_check]']").prop('checked', false);
+                // $("[name='custom_attributes[ukrposhta_check]']").attr('value', 0);
+                setTimeout(function () {
+                    $("[name='custom_attributes[ukrposhta_check]']").prop('checked', false);
+                    $("[name='custom_attributes[ukrposhta_check]']").val('0');
+                }, 300);
                 check = 1;
             } else {
                 this.cityDefault(true);
@@ -61,17 +68,19 @@ define([
                 this.cityNovaposhta(false);
                 $(".street").show();
             }
-
             var address = quote.shippingAddress();
             rateRegistry.set(address.getKey(), null);
             rateRegistry.set(address.getCacheKey(), null);
-            if (address.customAttributes == undefined) {
+
                 address.customAttributes = {}
-            }
-            address.customAttributes = _.extend(address.customAttributes, [{
+            // address.customAttributes = _.extend(address.customAttributes, [{
+            //     "attribute_code": "novaposhta_check",
+            //     "value": this.value()
+            // }]);
+            address.customAttributes = [{
                 "attribute_code": "novaposhta_check",
                 "value": this.value()
-            }]);
+            }];
             uiRegistry.set('shippingAddress', address);
             quote.shippingAddress(address);
         }

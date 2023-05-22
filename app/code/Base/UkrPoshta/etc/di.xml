@@ -4,7 +4,7 @@
         <plugin name="dropdown_states_plugin" type="Base\UkrPoshta\Plugin\LayoutProcessor" sortOrder="50" disabled="false"/>
     </type>
     <type name="Magento\Checkout\Api\ShippingInformationManagementInterface">
-        <plugin name="quote_save_field" type="Base\UkrPoshta\Plugin\QuoteSaveField" sortOrder="1"/>
+        <plugin name="quote_save_field" type="Base\UkrPoshta\Plugin\QuoteSaveField" sortOrder="1" disabled="true"/>
     </type>
     <type name="Magento\Framework\Console\CommandList">
         <arguments>
@@ -12,5 +12,14 @@
                 <item name="import_states_command" xsi:type="object">Base\UkrPoshta\Console\Command\ImportStates</item>
             </argument>
         </arguments>
+    </type>
+    <type name="Magento\Quote\Api\ShipmentEstimationInterface">
+        <plugin name="ukrposhta_check_plugin" type="Base\UkrPoshta\Plugin\UkrPoshtaCheckPlugin" sortOrder="100" disabled="true"/>
+    </type>
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="ukrposhta_shipping_information" type="Base\UkrPoshta\Plugin\ShippingInformationManagementPlugin" sortOrder="1" disabled="false"/>
+    </type>
+    <type name="Magento\Checkout\Block\Checkout\AttributeMerger">
+        <plugin name="shippingAddress" type="Base\UkrPoshta\Plugin\AttributeMerger"/>
     </type>
 </config>

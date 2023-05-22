@@ -6,6 +6,7 @@
                 <title>Укрпошта</title>
                 <name>Доставка кур'єром</name>
                 <shipping_cost>80</shipping_cost>
+                <free_shipping_min_amount>10000</free_shipping_min_amount>
                 <sallowspecific>0</sallowspecific>
                 <sort_order>15</sort_order>
                 <model>Base\UkrPoshta\Model\Carrier\Customshipping</model>

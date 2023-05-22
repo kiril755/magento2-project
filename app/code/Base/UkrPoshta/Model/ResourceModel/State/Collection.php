@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Base\UkrPoshta\Model\ResourceModel\State;
 
@@ -9,6 +10,9 @@ use Base\UkrPoshta\Model\ResourceModel\State as StateResource;
 
 class Collection extends AbstractCollection
 {
+    /**
+     * @var string
+     */
     protected $_idFieldName = 'id';
 
     protected function _construct()

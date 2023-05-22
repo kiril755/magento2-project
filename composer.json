@@ -23,7 +23,8 @@
         "magento/product-community-edition": "2.4.6",
         "mageplaza/magento-2-russian-language-pack": "dev-master",
         "mageplaza/magento-2-ukrainian-language-pack": "dev-master",
-        "mageplaza/module-smtp": "^4.7"
+        "mageplaza/module-smtp": "^4.7",
+        "piszczek/magento2-inputmask": "^0.0.2"
     },
     "autoload": {
         "exclude-from-classmap": [
