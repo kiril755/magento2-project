@@ -9,7 +9,7 @@
         <p class="request-status"><?php echo $block->escapeHtml(__($block->requestStatusMessage())) ?></p>
     <?php else: ?>
         <div class="custom-google_maps" >
-            <p class="custom-google_maps-title">Please, choose your location:</p>
+            <p class="custom-google_maps-title"><?php echo $block->escapeHtml(__('Please, choose your location:')); ?></p>
             <div id="map"></div>
         </div>
         <form id="my-form" method="POST" data-mage-init='{"validation": {}}'>
