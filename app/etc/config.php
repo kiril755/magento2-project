@@ -329,6 +329,8 @@ return [
         'Magento_WishlistGraphQl' => 1,
         'Base_UkrPoshta' => 1,
         'Base_WholesaleRequestForm' => 1,
+        'Hidden_Apparel' => 1,
+        'Hidden_Base' => 1,
         'Mageplaza_Core' => 1,
         'Mageplaza_Smtp' => 1,
         'PayPal_Braintree' => 1,
