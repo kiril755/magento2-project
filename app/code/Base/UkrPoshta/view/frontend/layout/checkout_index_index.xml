@@ -1,7 +1,5 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <css src="Base_UkrPoshta::css/custom.css"/>
-    </head>
+
     <body>
         <referenceBlock name="checkout.root">
             <arguments>
@@ -57,13 +55,14 @@
                                                                     </item>
                                                                     <item name="config" xsi:type="array">
                                                                         <item name="elementTmpl" xsi:type="string">Base_UkrPoshta/telephone</item>
+                                                                        <item name="placeholder" xsi:type="string">+38 (999) 999 99 99</item>
                                                                     </item>
                                                                 </item>
                                                             </item>
                                                         </item>
-                                                        <item name="custom-shipping-method-fields" xsi:type="array">
+                                                        <item name="ukrposhta-shipping-method-fields" xsi:type="array">
                                                             <item name="component" xsi:type="string">uiComponent</item>
-                                                            <item name="displayArea" xsi:type="string">custom-shipping-method-fields</item>
+                                                            <item name="displayArea" xsi:type="string">ukrposhta-shipping-method-fields</item>
 
                                                             <item name="children" xsi:type="array">
 

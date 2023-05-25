@@ -1,16 +1,16 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <carriers>
-            <customshipping>
+            <ukrposhta>
                 <active>0</active>
                 <title>Укрпошта</title>
-                <name>Доставка кур'єром</name>
+                <name>Укрпошта</name>
                 <shipping_cost>80</shipping_cost>
                 <free_shipping_min_amount>10000</free_shipping_min_amount>
                 <sallowspecific>0</sallowspecific>
                 <sort_order>15</sort_order>
-                <model>Base\UkrPoshta\Model\Carrier\Customshipping</model>
-            </customshipping>
+                <model>Base\UkrPoshta\Model\Carrier\Ukrposhta</model>
+            </ukrposhta>
         </carriers>
     </default>
 </config>

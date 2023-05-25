@@ -20,11 +20,11 @@
         text="method.carrier_title" />
 </tr>
 
-<!-- ko if: method.method_code=='customshipping' -->
-<tr class="custom-shipping-method-fields-shipping-information" >
+<!-- ko if: method.method_code=='ukrposhta' -->
+<tr class="ukrposhta-shipping-method-fields-shipping-information" >
     <td style="border-top: none;padding-top: 0px;" colspan="4">
-        <div id="custom-shipping-method-fields-details-list-wrapper" data-bind="visible: method.method_code + '_' + method.carrier_code == 'customshipping_customshipping'">
-            <!-- ko foreach: element.getRegion('custom-shipping-method-fields') -->
+        <div id="ukrposhta-shipping-method-fields-details-list-wrapper" data-bind="visible: method.method_code + '_' + method.carrier_code == 'ukrposhta_ukrposhta'">
+            <!-- ko foreach: element.getRegion('ukrposhta-shipping-method-fields') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
         </div>

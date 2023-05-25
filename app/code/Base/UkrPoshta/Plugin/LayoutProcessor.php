@@ -9,6 +9,8 @@ use Magento\Customer\Api\AddressRepositoryInterface;
 use Magento\Customer\Model\Session as CustomerSession;
 use Magento\Checkout\Model\Session as CheckoutSession;
 use Magento\Quote\Api\ShippingMethodManagementInterface;
+use Magento\Checkout\Block\Checkout\LayoutProcessor as CheckoutLayoutProcessor;
+use Magento\Framework\Exception\LocalizedException;
 
 class LayoutProcessor
 {
@@ -47,13 +49,13 @@ class LayoutProcessor
     }
 
     /**
-     * @param \Magento\Checkout\Block\Checkout\LayoutProcessor $subject
+     * @param CheckoutLayoutProcessor $subject
      * @param array $jsLayout
      * @return array
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws LocalizedException
      */
     public function afterProcess(
-        \Magento\Checkout\Block\Checkout\LayoutProcessor $subject,
+        CheckoutLayoutProcessor $subject,
         array                                            $jsLayout
     ) : array
     {
@@ -117,7 +119,7 @@ class LayoutProcessor
         $visible = false;
 
         $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-        ['shippingAddress']['children']['custom-shipping-method-fields']['children']['ukrposhta_state_field'] = [
+        ['shippingAddress']['children']['ukrposhta-shipping-method-fields']['children']['ukrposhta_state_field'] = [
             'component' => "Magento_Ui/js/form/element/select",
             'config' => [
                 'customScope' => 'shippingAddress.extension_attributes',
@@ -137,7 +139,7 @@ class LayoutProcessor
         // ukrposhta_street_field
 
         $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-        ['shippingAddress']['children']['custom-shipping-method-fields']['children']['ukrposhta_street_field'] = [
+        ['shippingAddress']['children']['ukrposhta-shipping-method-fields']['children']['ukrposhta_street_field'] = [
             'component' => "Magento_Ui/js/form/element/abstract",
             'config' => [
                 'customScope' => 'shippingAddress.extension_attributes',
@@ -155,7 +157,7 @@ class LayoutProcessor
         //ukrposhta_house_number_field
 
         $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-        ['shippingAddress']['children']['custom-shipping-method-fields']['children']['ukrposhta_house_number_field'] = [
+        ['shippingAddress']['children']['ukrposhta-shipping-method-fields']['children']['ukrposhta_house_number_field'] = [
             'component' => "Magento_Ui/js/form/element/abstract",
             'config' => [
                 'customScope' => 'shippingAddress.extension_attributes',
@@ -176,7 +178,7 @@ class LayoutProcessor
         // ukrposhta_apartment_number_field
 
         $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-        ['shippingAddress']['children']['custom-shipping-method-fields']['children']['ukrposhta_apartment_number_field'] = [
+        ['shippingAddress']['children']['ukrposhta-shipping-method-fields']['children']['ukrposhta_apartment_number_field'] = [
             'component' => "Magento_Ui/js/form/element/abstract",
             'config' => [
                 'customScope' => 'shippingAddress.extension_attributes',

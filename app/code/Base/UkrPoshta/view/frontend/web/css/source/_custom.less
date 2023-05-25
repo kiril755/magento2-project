@@ -1,115 +1,63 @@
+.checkout-container {
 
 
-#checkout input:not(.select2-search__field) {
-    background-color: #edfffc !important;
-    border-radius: 5px !important;
-    border-color: #e6dafc !important;
-    box-shadow: 0px 13px 16px -8px rgba(0, 0, 0, 0.10);
-    transition: box-shadow 200ms cubic-bezier(.17, .67, .83, .67);
+    input, select[name="extension_attributes[ukrposhta_state_field]"], select[name="extension_attributes[free_state_field]"] {
+        background-color: #edfffc !important;
+        border-radius: 5px !important;
+        border-color: #e6dafc !important;
+        box-shadow: 0px 13px 16px -8px rgba(0, 0, 0, 0.10);
+        transition: box-shadow 200ms cubic-bezier(.17, .67, .83, .67);
+
+        &:hover {
+            box-shadow: 0px 4px 11px -5px rgba(0, 0, 0, 0.75);
+        }
+        &:focus {
+            box-shadow: 0px 4px 11px -5px rgba(0, 0, 0, 0.75);
+        }
+    }
+
+    .opc-block-summary {
+        background-color: #edfffc !important;
+    }
+
+    #ukrposhta-shipping-method-fields-details-list-wrapper, #free-shipping-method-fields-details-list-wrapper {
+        padding: 5px 5px;
+
+        .field:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        .field label {
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+    }
+
+    ///// icons
+
+    #label_method_ukrposhta_ukrposhta, #label_method_freeshipping_freeshipping {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+        }
+    }
+
+    #label_method_ukrposhta_ukrposhta::after {
+        background: url('../../images/Ukrposhta-ua-icon.png');
+        background-size: cover;
+        width: 24px;
+        height: 34px;
+        top: 13px;
+        left: 80px;
+    }
+
+    #label_method_freeshipping_freeshipping::after {
+        background: url('../../images/free-shipping.png');
+        background-size: cover;
+        width: 34px;
+        height: 27px;
+        top: 14px;
+        left: 44px;
+    }
 }
-
-#checkout input:hover {
-    box-shadow: 0px 4px 11px -5px rgba(0, 0, 0, 0.75);
-}
-
-#checkout input:focus {
-    box-shadow: 0px 4px 11px -5px rgba(0, 0, 0, 0.75);
-}
-
-select[name="extension_attributes[ukrposhta_state_field]"] {
-    background-color: #edfffc !important;
-    border-radius: 5px !important;
-    border-color: #e6dafc !important;
-    box-shadow: 0px 13px 16px -8px rgba(0, 0, 0, 0.10);;
-    transition: box-shadow 200ms cubic-bezier(.17, .67, .83, .67);
-}
-
-select[name="extension_attributes[ukrposhta_state_field]"]:hover {
-    box-shadow: 0px 4px 11px -5px rgba(0, 0, 0, 0.75);
-}
-
-select[name="extension_attributes[ukrposhta_state_field]"]:focus {
-    box-shadow: 0px 4px 11px -5px rgba(0, 0, 0, 0.75);
-}
-
-select[name="extension_attributes[free_state_field]"] {
-    background-color: #edfffc !important;
-    border-radius: 5px !important;
-    border-color: #e6dafc !important;
-    box-shadow: 0px 13px 16px -8px rgba(0, 0, 0, 0.10);;
-    transition: box-shadow 200ms cubic-bezier(.17, .67, .83, .67);
-}
-
-select[name="extension_attributes[free_state_field]"]:hover {
-    box-shadow: 0px 4px 11px -5px rgba(0, 0, 0, 0.75);
-}
-
-select[name="extension_attributes[free_state_field]"]:focus {
-    box-shadow: 0px 4px 11px -5px rgba(0, 0, 0, 0.75);
-}
-
-.opc-block-summary {
-    background-color: #edfffc !important;
-}
-
-
-#custom-shipping-method-fields-details-list-wrapper .field:not(:last-child) {
-    margin-bottom: 10px;
-}
-
-#free-shipping-method-fields-details-list-wrapper .field:not(:last-child) {
-    margin-bottom: 10px;
-}
-
-#custom-shipping-method-fields-details-list-wrapper .field label {
-    display: inline-block;
-    margin-bottom: 8px;
-}
-
-#free-shipping-method-fields-details-list-wrapper .field label {
-    display: inline-block;
-    margin-bottom: 8px;
-}
-
-//////
-#custom-shipping-method-fields-details-list-wrapper {
-    padding: 5px 5px;
-}
-
-#free-shipping-method-fields-details-list-wrapper {
-    padding: 5px 5px;
-}
-
-/////
-
-
-///// icons
-
-#label_method_customshipping_customshipping{
-    position: relative;
-}
-#label_method_customshipping_customshipping::after {
-    content: '';
-    background: url('../../images/Ukrposhta-ua-icon.png');
-    background-size: cover;
-    position: absolute;
-    width: 24px;
-    height: 34px;
-    top: 13px;
-    left: 80px;
-}
-
-#label_method_freeshipping_freeshipping {
-    position: relative;
-}
-#label_method_freeshipping_freeshipping::after {
-    content: '';
-    background: url('../../images/free-shipping.png');
-    background-size: cover;
-    position: absolute;
-    width: 34px;
-    height: 27px;
-    top: 14px;
-    left: 44px;
-}
-
