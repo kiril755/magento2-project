@@ -13,7 +13,7 @@ define([
             if (shippingAddress['extension_attributes'] == undefined) {
                 shippingAddress['extension_attributes'] = {};
             }
-            if (quote.shippingMethod().method_code == 'customshipping') {
+            if (quote.shippingMethod().method_code == 'ukrposhta') {
                 return originalAction();
             }
 

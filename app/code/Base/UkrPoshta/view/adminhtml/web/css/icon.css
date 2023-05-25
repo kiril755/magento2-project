@@ -1,4 +1,4 @@
-#carriers_customshipping-head::after {
+#carriers_ukrposhta-head::after {
     content: '';
     background:url('../images/Ukrposhta-ua-icon.png');
     background-size:cover;
