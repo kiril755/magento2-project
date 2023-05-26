@@ -1,0 +1,31 @@
+{
+    "customer_wholesale_request": {
+        "column": {
+            "id": true,
+            "store_id": true,
+            "store": true,
+            "customer_id": true,
+            "name": true,
+            "email": true,
+            "personal_income_tax": true,
+            "image": true,
+            "region": true,
+            "city": true,
+            "location_latitude": true,
+            "location_longitude": true,
+            "company": true,
+            "text": true,
+            "status": true,
+            "create_at": true
+        },
+        "index": {
+            "CUSTOMER_WHOLESALE_REQUEST_CUSTOMER_ID": true,
+            "CUSTOMER_WHOLESALE_REQUEST_STORE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "CUSTOMER_WHOLESALE_REQUEST_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "CUSTOMER_WHOLESALE_REQUEST_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}

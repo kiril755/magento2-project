@@ -6,24 +6,27 @@ namespace Base\WholesaleRequestForm\Observer;
 use Magento\Framework\Event\Observer as EventObserver;
 use Magento\Framework\Event\ObserverInterface;
 use Base\WholesaleRequestForm\Model\ResourceModel\Request\CollectionFactory;
-use Base\WholesaleRequestForm\Helper\Email;
+use Base\WholesaleRequestForm\Model\SendEmail as SendEmailModel;
 
 class SendEmail implements ObserverInterface
 {
     /**
      * @var CollectionFactory
-     * @var Email
+     * @var SendEmailModel
      */
     private $requestCollectionFactory;
-    private $emailHelper;
+    private $sendEmailModel;
 
     /**
      * @param CollectionFactory $requestCollectionFactory
-     * @param Email $emailHelper
+     * @param SendEmailModel $sendEmailModel
      */
-    public function __construct(CollectionFactory $requestCollectionFactory, Email $emailHelper) {
+    public function __construct(
+        CollectionFactory $requestCollectionFactory,
+        SendEmailModel $sendEmailModel
+    ) {
         $this->requestCollectionFactory = $requestCollectionFactory;
-        $this->emailHelper = $emailHelper;
+        $this->sendEmailModel = $sendEmailModel;
     }
 
     /**
@@ -61,9 +64,9 @@ class SendEmail implements ObserverInterface
             ];
 
 
-            array_push($lastFiveRequest, $eachRequest);
+            $lastFiveRequest[] = $eachRequest;
         }
 
-        $this->emailHelper->sendEmail($newRequest, $lastFiveRequest);
+        $this->sendEmailModel->sendEmail($newRequest, $lastFiveRequest);
     }
 }

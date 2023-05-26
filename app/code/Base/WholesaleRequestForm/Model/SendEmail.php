@@ -1,59 +1,66 @@
 <?php
 declare(strict_types=1);
 
-namespace Base\WholesaleRequestForm\Helper;
+namespace Base\WholesaleRequestForm\Model;
 
-use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Framework\App\Helper\Context;
+use Base\WholesaleRequestForm\Api\SendEmailInterface;
 use Magento\Framework\Translate\Inline\StateInterface;
 use Magento\Framework\Escaper;
 use Magento\Framework\Mail\Template\TransportBuilder;
+use Psr\Log\LoggerInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Store\Model\ScopeInterface;
 
-class Email extends AbstractHelper
+class SendEmail implements SendEmailInterface
 {
     /**
      * @var StateInterface
      * @var Escaper
      * @var TransportBuilder
+     * @var LoggerInterface
+     * @var ScopeConfigInterface
      */
     private $inlineTranslation;
     private $escaper;
     private $transportBuilder;
     private $logger;
+    private $scopeConfig;
 
     /**
-     * @param Context $context
      * @param StateInterface $inlineTranslation
      * @param Escaper $escaper
      * @param TransportBuilder $transportBuilder
+     * @param LoggerInterface $logger
+     * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
-        Context $context,
         StateInterface $inlineTranslation,
         Escaper $escaper,
         TransportBuilder $transportBuilder,
+        LoggerInterface $logger,
+        ScopeConfigInterface $scopeConfig
     ) {
-        parent::__construct($context);
         $this->inlineTranslation = $inlineTranslation;
         $this->escaper = $escaper;
         $this->transportBuilder = $transportBuilder;
-        $this->logger = $context->getLogger();
+        $this->logger = $logger;
+        $this->scopeConfig = $scopeConfig;
     }
 
     /**
-     * @param $newRequestArr
-     * @param $lastFiveRequestArr
+     * @param array $newRequestArr
+     * @param array $lastFiveRequestArr
      * @return void
      */
-    public function sendEmail($newRequestArr, $lastFiveRequestArr) : void
+    public function sendEmail(array $newRequestArr, array $lastFiveRequestArr) : void
     {
         try {
             $this->inlineTranslation->suspend();
             $sender = [
                 'name' => $this->escaper->escapeHtml('Request'),
-                'email' => $this->escaper->escapeHtml('request@example.com'),
+                'email' => $this->escaper->escapeHtml(self::SENDER_EMAIL),
             ];
-            $recipient = 'owner@example.com';
+            $recipient = $this->scopeConfig->getValue('trans_email/ident_general/email', ScopeInterface::SCOPE_STORE);
 
             $request = [
                 'newRequest'  => $newRequestArr,

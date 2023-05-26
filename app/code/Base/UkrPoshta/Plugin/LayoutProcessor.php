@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Base\UkrPoshta\Plugin;
 
 use Magento\Framework\HTTP\Client\Curl;
-use Base\UkrPoshta\Model\ResourceModel\State\CollectionFactory;
+use Base\UkrStatesImport\Model\ResourceModel\State\CollectionFactory;
 use Magento\Customer\Api\AddressRepositoryInterface;
 use Magento\Customer\Model\Session as CustomerSession;
 use Magento\Checkout\Model\Session as CheckoutSession;

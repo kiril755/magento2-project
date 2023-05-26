@@ -12,11 +12,4 @@
         <column xsi:type="int" name="ukrposhta_house_number_field" nullable="true" comment="State ukrposhta" />
         <column xsi:type="int" name="ukrposhta_apartment_number_field" nullable="true" comment="State ukrposhta" />
     </table>
-    <table name="ua_states" resource="default" engine="innodb" comment="UA States Table">
-        <column xsi:type="int" name="id" padding="6" unsigned="true" nullable="false" identity="true" comment="id"/>
-        <column xsi:type="varchar" name="state" nullable="false" length="255" comment="State"/>
-        <constraint xsi:type="primary" referenceId="PRIMARY">
-            <column name="id"/>
-        </constraint>
-    </table>
 </schema>

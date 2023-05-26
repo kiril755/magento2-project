@@ -6,7 +6,7 @@ namespace Base\WholesaleRequestForm\Block\Wholesalers;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Backend\Block\Template\Context;
-use Base\UkrPoshta\Model\ResourceModel\State\CollectionFactory;
+use Base\UkrStatesImport\Model\ResourceModel\State\CollectionFactory;
 use Base\WholesaleRequestForm\Model\ResourceModel\Request\CollectionFactory as WholesaleCollectionFactory;
 use Magento\Store\Model\StoreManagerInterface;
 

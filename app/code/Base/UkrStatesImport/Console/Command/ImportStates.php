@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Base\UkrPoshta\Console\Command;
+namespace Base\UkrStatesImport\Console\Command;
 
 use Symfony\Component\Console\Command\Command;
-use Base\UkrPoshta\Model\Config\UpdateStatesModel;
+use Base\UkrStatesImport\Model\Config\UpdateStatesModel;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Magento\Framework\Console\Cli;

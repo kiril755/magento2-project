@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Base\UkrPoshta\Cron;
+namespace Base\UkrStatesImport\Cron;
 
-use Base\UkrPoshta\Model\Config\UpdateStatesModel;
+use Base\UkrStatesImport\Model\Config\UpdateStatesModel;
 class UpdateStates
 {
     /**

@@ -1,0 +1,18 @@
+{
+    "quote": {
+        "column": {
+            "ukrposhta_state_field": true,
+            "ukrposhta_street_field": true,
+            "ukrposhta_house_number_field": true,
+            "ukrposhta_apartment_number_field": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "ukrposhta_state_field": true,
+            "ukrposhta_street_field": true,
+            "ukrposhta_house_number_field": true,
+            "ukrposhta_apartment_number_field": true
+        }
+    }
+}

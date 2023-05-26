@@ -6,6 +6,7 @@ namespace Base\UkrPoshta\Model\Carrier;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Carrier\AbstractCarrier;
 use Magento\Shipping\Model\Carrier\CarrierInterface;
+use Base\UkrPoshta\Api\CollectRatesInterface;
 use Magento\Shipping\Model\Rate\ResultFactory;
 use Magento\Quote\Model\Quote\Address\RateResult\MethodFactory;
 use Magento\Framework\App\Config\ScopeConfigInterface;
@@ -13,7 +14,7 @@ use Magento\Quote\Model\Quote\Address\RateResult\ErrorFactory;
 use Psr\Log\LoggerInterface;
 use Magento\Shipping\Model\Rate\Result;
 
-class Ukrposhta extends AbstractCarrier implements CarrierInterface
+class Ukrposhta extends AbstractCarrier implements CarrierInterface, CollectRatesInterface
 {
     /**
      * @var string

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Base\UkrPoshta\Api;
+namespace Base\UkrStatesImport\Api;
 
 interface UpdateStatesInterface
 {
