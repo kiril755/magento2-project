@@ -5,7 +5,7 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block name="wholesalers" class="Base\WholesaleRequestForm\Block\Wholesalers\Index" template="Base_WholesaleRequestForm::wholesalers.phtml"/>
+            <block name="wholesalers" class="Base\WholesaleRequestForm\Block\Wholesalers\Index" template="Base_WholesaleRequestForm::wholesalers.phtml" ifconfig="wholesale_request_form/general/enable"/>
         </referenceContainer>
     </body>
 </page>

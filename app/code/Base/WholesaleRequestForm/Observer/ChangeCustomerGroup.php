@@ -8,6 +8,7 @@ use Magento\Framework\Event\Observer as EventObserver;
 use Magento\Framework\App\RequestInterface;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Store\Model\StoreManagerInterface;
+use Magento\Customer\Model\ResourceModel\Group\CollectionFactory as CustomerGroupFactory;
 
 class ChangeCustomerGroup implements ObserverInterface
 {
@@ -15,24 +16,29 @@ class ChangeCustomerGroup implements ObserverInterface
      * @var RequestInterface
      * @var CustomerRepositoryInterface
      * @var StoreManagerInterface
+     * @var CustomerGroupFactory
      */
     private $request;
     private $customerRepository;
     private $storeManager;
+    private $customerGroupFactory;
 
     /**
      * @param RequestInterface $request
      * @param CustomerRepositoryInterface $customerRepository
      * @param StoreManagerInterface $storeManager
+     * @param CustomerGroupFactory $customerGroupFactory
      */
     public function __construct(
         RequestInterface $request,
         CustomerRepositoryInterface $customerRepository,
-        StoreManagerInterface $storeManager
+        StoreManagerInterface $storeManager,
+        CustomerGroupFactory $customerGroupFactory
     ) {
         $this->request = $request;
         $this->customerRepository = $customerRepository;
         $this->storeManager = $storeManager;
+        $this->customerGroupFactory = $customerGroupFactory;
     }
 
     /**
@@ -52,11 +58,18 @@ class ChangeCustomerGroup implements ObserverInterface
 
         $storeId = $observer->getEvent()->getObject()->getStoreId();
 
+        $collection = $this->customerGroupFactory->create();
+        $uaData = $collection->addFieldToFilter('customer_group_code', 'ua')->getData();
+        $ruData = $collection->addFieldToFilter('customer_group_code', 'ru')->getData();
+
+
         if ($status === 'success') {
             $customer->setGroupId(2);
         } else {
-            $groupId = $storeId == 1 ? 4 : 5;
-            $customer->setGroupId($groupId);
+            if ($uaData && $ruData) {
+                $groupId = $storeId == 1 ? $uaData[0]['customer_group_id'] : $ruData[0]['customer_group_id'];
+                $customer->setGroupId($groupId);
+            }
         }
 
         $this->customerRepository->save($customer);

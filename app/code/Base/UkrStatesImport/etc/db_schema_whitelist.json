@@ -1,0 +1,11 @@
+{
+    "ua_states": {
+        "column": {
+            "id": true,
+            "state": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

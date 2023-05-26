@@ -18,6 +18,7 @@ use Magento\Framework\Filesystem;
 
 class Submit implements HttpPostActionInterface
 {
+    private const IMAGE_PATH = 'base/wholesalerequestform';
     /**
      * @var JsonFactory
      * @var RequestInterface
@@ -78,8 +79,6 @@ class Submit implements HttpPostActionInterface
      */
     public function execute() : Json
     {
-
-
         $result = $this->jsonFactory->create();
         $resultPage = $this->resultPageFactory->create();
 
@@ -96,26 +95,24 @@ class Submit implements HttpPostActionInterface
                 $customerEmail = $this->customerSession->getCustomer()->getEmail();
             }
 
+            $IdCardImage = null;
             if(isset($_FILES['id-image']['name']) && $_FILES['id-image']['name'] != '') {
                 $uploader = $this->fileUploaderFactory->create(['fileId' => 'id-image']);
                 $uploader->setAllowedExtensions(['jpg', 'jpeg', 'png']);
                 $uploader->setAllowRenameFiles(false);
                 $uploader->setFilesDispersion(false);
                 $mediaDirectory = $this->filesystem->getDirectoryRead(DirectoryList::MEDIA);
-                $destinationPath = $mediaDirectory->getAbsolutePath('base/wholesalerequestform');
+                $destinationPath = $mediaDirectory->getAbsolutePath(self::IMAGE_PATH);
                 $resultOfUploader = $uploader->save($destinationPath);
-                $imagePath = 'base/wholesalerequestform/'.$resultOfUploader['file'];
+                $imagePath = self::IMAGE_PATH . '/' . $resultOfUploader['file'];
                 $IdCardImage = $imagePath;
-            } else {
-                $IdCardImage = null;
             }
 
-            if ($data['latitude'] != "" && $data['longitude'] != "") {
+            $latitude = "50.450001";
+            $longitude = "30.523333";
+            if ($data['latitude'] && $data['longitude']) {
                 $latitude = $data['latitude'];
                 $longitude = $data['longitude'];
-            } else {
-                $latitude = "50.450001";
-                $longitude = "30.523333";
             }
 
             $item = $this->requestFactory->create();

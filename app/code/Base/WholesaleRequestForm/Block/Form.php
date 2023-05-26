@@ -9,7 +9,7 @@ use Magento\Backend\Block\Template\Context;
 use Magento\Customer\Model\Session as CustomerSession;
 use Magento\Store\Model\StoreManagerInterface;
 use Base\WholesaleRequestForm\Model\RequestFactory;
-use Base\UkrPoshta\Model\ResourceModel\State\CollectionFactory as StateCollectionFactory;
+use Base\UkrStatesImport\Model\ResourceModel\State\CollectionFactory as StateCollectionFactory;
 
 class Form extends Template
 {

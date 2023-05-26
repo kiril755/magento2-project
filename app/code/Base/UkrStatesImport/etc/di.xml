@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="import_states_command" xsi:type="object">Base\UkrStatesImport\Console\Command\ImportStates</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Base\UkrStatesImport\Api\UpdateStatesInterface" type="Base\UkrStatesImport\Model\Config\UpdateStatesModel" />
+    <preference for="Base\UkrStatesImport\Api\CollectRatesInterface" type="Base\UkrStatesImport\Model\Carrier\Ukrposhta" />
+</config>

@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Base\WholesaleRequestForm\Ui;
 
-use Base\UkrPoshta\Model\ResourceModel\State\CollectionFactory;
+use Base\UkrStatesImport\Model\ResourceModel\State\CollectionFactory;
 class Region implements \Magento\Framework\Data\OptionSourceInterface
 {
     /**

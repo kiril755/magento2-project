@@ -10,7 +10,7 @@
             </action>
         </referenceBlock>
         <referenceContainer name="content">
-            <block class="Base\WholesaleRequestForm\Block\Form" name="form" template="Base_WholesaleRequestForm::form.phtml" cacheable="false"/>
+            <block class="Base\WholesaleRequestForm\Block\Form" name="form" template="Base_WholesaleRequestForm::form.phtml" cacheable="false" ifconfig="wholesale_request_form/general/enable"/>
         </referenceContainer>
     </body>
 </page>

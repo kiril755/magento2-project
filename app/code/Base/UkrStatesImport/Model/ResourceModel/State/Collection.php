@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Base\UkrPoshta\Model\ResourceModel\State;
+namespace Base\UkrStatesImport\Model\ResourceModel\State;
 
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
-use Base\UkrPoshta\Model\State;
-use Base\UkrPoshta\Model\ResourceModel\State as StateResource;
+use Base\UkrStatesImport\Model\State;
+use Base\UkrStatesImport\Model\ResourceModel\State as StateResource;
 
 class Collection extends AbstractCollection
 {

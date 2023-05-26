@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Base\UkrPoshta\Model\Config;
+namespace Base\UkrStatesImport\Model\Config;
 
-use Base\UkrPoshta\Api\UpdateStatesInterface;
-use Base\UkrPoshta\Model\StateFactory;
+use Base\UkrStatesImport\Api\UpdateStatesInterface;
+use Base\UkrStatesImport\Model\StateFactory;
 use Magento\Framework\HTTP\Client\Curl;
 
 class UpdateStatesModel implements UpdateStatesInterface
