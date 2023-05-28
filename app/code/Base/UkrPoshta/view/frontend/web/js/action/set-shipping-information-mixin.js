@@ -24,7 +24,6 @@ define([
                 apartmentNumberField = $('[name="extension_attributes[free_apartment_number_field]"]').val() === "" ? null : $('[name="extension_attributes[free_apartment_number_field]"]').val();
             }
             street = `${addressName}, ${houseNumberField}, ${apartmentNumberField}`;
-            debugger
             quoteAddressArr.map((address) => {
                 address.city = 'Київ';
                 address.region = state;
