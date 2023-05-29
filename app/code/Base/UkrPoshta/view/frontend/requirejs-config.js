@@ -1,4 +1,10 @@
 var config = {
+    map: {
+        '*': {
+            'Magento_Checkout/template/shipping.html':
+                'Base_UkrPoshta/template/shipping.html'
+        }
+    },
     config: {
         mixins: {
             'Magento_Checkout/js/action/set-shipping-information': {

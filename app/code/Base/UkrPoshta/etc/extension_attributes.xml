@@ -3,20 +3,24 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
     <extension_attributes for="Magento\Checkout\Api\Data\ShippingInformationInterface">
         <attribute code="ukrposhta_state_field" type="string" />
+        <attribute code="ukrposhta_city_field" type="string" />
         <attribute code="ukrposhta_street_field" type="string" />
         <attribute code="ukrposhta_house_number_field" type="int" />
         <attribute code="ukrposhta_apartment_number_field" type="int" />
         <attribute code="free_state_field" type="string" />
+        <attribute code="free_city_field" type="string" />
         <attribute code="free_street_field" type="string" />
         <attribute code="free_house_number_field" type="int" />
         <attribute code="free_apartment_number_field" type="int" />
     </extension_attributes>
     <extension_attributes for="Magento\Quote\Api\Data\AddressInterface">
         <attribute code="ukrposhta_state_field" type="string" />
+        <attribute code="ukrposhta_city_field" type="string" />
         <attribute code="ukrposhta_street_field" type="string" />
         <attribute code="ukrposhta_house_number_field" type="int" />
         <attribute code="ukrposhta_apartment_number_field" type="int" />
         <attribute code="free_state_field" type="string" />
+        <attribute code="free_city_field" type="string" />
         <attribute code="free_street_field" type="string" />
         <attribute code="free_house_number_field" type="int" />
         <attribute code="free_apartment_number_field" type="int" />
