@@ -1,0 +1,30 @@
+<?php
+/**
+ * @var \Base\PopupGeneralModule\Block\Popup $block
+ */
+
+?>
+
+<?php if ($block->canShowPopup()): ?>
+    <?php if ($block->isPopupEnabled()): ?>
+        <div class="callfor-popup">
+            <h2>Simple Modal</h2>
+        </div>
+    <?php else: ?>
+        <div class="popup-sticky-block">
+            <div class="popup-sticky-content">
+                <span class="popup-sticky-message">Popup was closed</span>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Base_PopupGeneralModule/js/popup" : {
+                "currentPageName": "<?php echo $block->currentUrl(); ?>"
+            }
+        }
+    }
+
+</script>
