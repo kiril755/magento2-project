@@ -1,30 +1,45 @@
 <?php
 /**
  * @var \Base\PopupGeneralModule\Block\Popup $block
+ * @var \Magento\Framework\Escaper $escaper
  */
 
 ?>
 
-<?php if ($block->canShowPopup()): ?>
-    <?php if ($block->isPopupEnabled()): ?>
-        <div class="callfor-popup">
-            <h2>Simple Modal</h2>
+<div class="popup_general" data-bind="scope: 'section'">
+    <!-- ko if: custom_section_popup().pagesFromScope.includes(custom_section_popup().currentPageTitle) && !custom_section_popup().popupWasClosedCheck.includes(custom_section_popup().currentPageTitle) -->
+    <div class="callfor-popup">
+        <?php echo $block->getBlockFromScope(); ?>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: custom_section_popup().pagesFromScope.includes(custom_section_popup().currentPageTitle) && custom_section_popup().popupWasClosedCheck.includes(custom_section_popup().currentPageTitle) -->
+    <div class="popup-sticky-block">
+        <div class="popup-sticky-content">
+            <span class="popup-sticky-message"><?php echo $escaper->escapeHtml(__('Popup was closed')) ?></span>
         </div>
-    <?php else: ?>
-        <div class="popup-sticky-block">
-            <div class="popup-sticky-content">
-                <span class="popup-sticky-message">Popup was closed</span>
-            </div>
-        </div>
-    <?php endif; ?>
-<?php endif; ?>
+    </div>
+    <!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+	{
+    	"*": {
+        	"Magento_Ui/js/core/app": {
+            	"components": {
+                	"section": {
+                    	"component": "Base_PopupGeneralModule/js/section"
+                	}
+            	}
+        	}
+    	}
+	}
+</script>
 <script type="text/x-magento-init">
     {
         "*": {
             "Base_PopupGeneralModule/js/popup" : {
-                "currentPageName": "<?php echo $block->currentUrl(); ?>"
+                "pagesFromConfig" : "<?php echo $block->pagesFromConfig(); ?>"
             }
         }
     }
-
 </script>
+

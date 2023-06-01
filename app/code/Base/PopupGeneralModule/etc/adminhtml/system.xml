@@ -17,7 +17,11 @@
                 </field>
                 <field id="display_pages" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Display on Pages</label>
-                    <source_model>Magento\Cms\Model\Config\Source\Page</source_model>
+                    <source_model>Base\PopupGeneralModule\Model\Config\PagesOption</source_model>
+                </field>
+                <field id="cms_block_popup" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cms block for popup</label>
+                    <source_model>Base\PopupGeneralModule\Model\Config\CmsBlocks</source_model>
                 </field>
             </group>
         </section>
