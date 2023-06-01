@@ -328,6 +328,7 @@ return [
         'Magento_WishlistAnalytics' => 1,
         'Magento_WishlistGraphQl' => 1,
         'Base_GoogleTagManager' => 1,
+        'Base_InstallBlocksPatch' => 1,
         'Base_PopupGeneralModule' => 1,
         'Base_UkrPoshta' => 1,
         'Base_UkrStatesImport' => 1,
