@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d7b0c7f18ac28fc97e4bb17109867c00",
+    "content-hash": "f125830141e7b629160db1861f9094d2",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -7815,7 +7815,8 @@
             "type": "magento2-module",
             "extra": {
                 "patches_applied": {
-                    "Change success ms add to cart": "patches/composer/magento/module-checkout/change_success_ms_add_to_cart.patch"
+                    "Change success ms add to cart": "patches/composer/magento/module-checkout/change_success_ms_add_to_cart.patch",
+                    "Change right message": "patches/composer/magento/module-checkout/change_right_message.patch"
                 }
             },
             "autoload": {

@@ -1,0 +1,13 @@
+diff --git a/view/frontend/templates/messages/addCartSuccessMessage.phtml b/view/frontend/templates/messages/addCartSuccessMessage.phtml
+index a668644..0978641 100644
+--- a/view/frontend/templates/messages/addCartSuccessMessage.phtml
++++ b/view/frontend/templates/messages/addCartSuccessMessage.phtml
+@@ -8,7 +8,7 @@
+ ?>
+
+ <?= $block->escapeHtml(__(
+-    'You added %1 to your <a href="%2">shopping cart</a>.',
++    'Hello world!',
+     $block->getData('product_name'),
+     $block->getData('cart_url')
+ ), ['a']);

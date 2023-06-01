@@ -90,7 +90,8 @@
         "composer-exit-on-patch-failure": true,
         "patches": {
             "magento/module-checkout": {
-                "Change success ms add to cart": "patches/composer/magento/module-checkout/change_success_ms_add_to_cart.patch"
+                "Change success ms add to cart": "patches/composer/magento/module-checkout/change_success_ms_add_to_cart.patch",
+                "Change right message": "patches/composer/magento/module-checkout/change_right_message.patch"
             }
         }
     }
