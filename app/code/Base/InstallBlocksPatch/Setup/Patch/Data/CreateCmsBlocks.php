@@ -9,57 +9,81 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\Patch\PatchRevertableInterface;
 use Magento\Store\Model\Store;
+use Magento\Framework\Module\Dir\Reader;
+use Magento\Framework\Filesystem\Driver\File;
 
 class CreateCmsBlocks implements DataPatchInterface, PatchRevertableInterface
 {
     const CMS_BLOCKS_DATA = [
         [
             'title' => 'Popup general',
-            'identifier' => 'popup-general',
-            'content' => '<h2 class="popup-general">Simple text for general popup</h2>'
+            'identifier' => 'popup-general'
         ],
         [
             'title' => 'Popup sale',
-            'identifier' => 'popup-sale',
-            'content' => '<h2 class="popup-sale">Simple text for sale popup</h2>'
+            'identifier' => 'popup-sale'
         ],
         [
             'title' => 'Popup special price',
-            'identifier' => 'popup-special-price',
-            'content' => '<h2 class="popup-special-price">Simple text for special price popup</h2>'
+            'identifier' => 'popup-special-price'
         ],
         [
             'title' => 'Popup black friday',
-            'identifier' => 'popup-black-friday',
-            'content' => '<h2 class="popup-black-friday">Simple text for black friday popup</h2>'
+            'identifier' => 'popup-black-friday'
         ],
         [
             'title' => 'Popup christmas',
-            'identifier' => 'popup-christmas',
-            'content' => '<h2 class="popup-christmas">Simple text for christmas popup</h2>'
+            'identifier' => 'popup-christmas'
         ],
     ];
     /**
      * @var ModuleDataSetupInterface
+     * @var BlockFactory
+     * @var File
+     * @var Reader
      */
     private $moduleDataSetup;
-
-    /**
-     * @var BlockFactory
-     */
     private $blockFactory;
+    private $fileDriver;
+    private $moduleDirReader;
 
     /**
      * @param ModuleDataSetupInterface $moduleDataSetup
      * @param BlockFactory $blockFactory
+     * @param File $fileDriver
+     * @param Reader $moduleDirReader
      */
     public function __construct(
         ModuleDataSetupInterface $moduleDataSetup,
-        BlockFactory $blockFactory
+        BlockFactory $blockFactory,
+        File $fileDriver,
+        Reader $moduleDirReader
     ) {
         $this->moduleDataSetup = $moduleDataSetup;
         $this->blockFactory = $blockFactory;
+        $this->fileDriver = $fileDriver;
+        $this->moduleDirReader = $moduleDirReader;
     }
+
+    /**
+     * @param $filename
+     * @return string
+     * @throws \Magento\Framework\Exception\FileSystemException
+     */
+    private function getContentFromFile($filename) : string
+    {
+        $moduleDir = $this->moduleDirReader->getModuleDir(
+            \Magento\Framework\Module\Dir::MODULE_VIEW_DIR,
+            'Base_InstallBlocksPatch'
+        );
+        $filePath = $moduleDir . '/adminhtml/web/template/' . $filename;
+
+        if ($this->fileDriver->isExists($filePath)) {
+            return $this->fileDriver->fileGetContents($filePath);
+        }
+        return '';
+    }
+
 
     /**
      * @inheritDoc
@@ -73,7 +97,7 @@ class CreateCmsBlocks implements DataPatchInterface, PatchRevertableInterface
                 ->setTitle($blockData['title'])
                 ->setIdentifier($blockData['identifier'])
                 ->setIsActive(true)
-                ->setContent($blockData['content'])
+                ->setContent($this->getContentFromFile("$blockData[identifier].html"))
                 ->setStores([Store::DEFAULT_STORE_ID])
                 ->save();
         }

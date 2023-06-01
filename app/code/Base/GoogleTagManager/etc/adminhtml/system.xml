@@ -4,7 +4,6 @@
         <tab id="base" translate="label" sortOrder="400">
             <label>Base</label>
         </tab>
-
         <section id="google_tag_manager" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Google tag manager</label>
             <tab>base</tab>
