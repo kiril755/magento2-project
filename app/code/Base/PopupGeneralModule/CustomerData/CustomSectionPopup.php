@@ -6,26 +6,33 @@ namespace Base\PopupGeneralModule\CustomerData;
 use Magento\Customer\CustomerData\SectionSourceInterface;
 use Magento\Framework\Stdlib\CookieManagerInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Store\Model\StoreManagerInterface;
+use Magento\Framework\Exception\NoSuchEntityException;
 class CustomSectionPopup implements SectionSourceInterface
 {
     /**
      * @var CookieManagerInterface
      * @var ScopeConfigInterface
+     * @var StoreManagerInterface
      */
     private $cookieManager;
     private $scopeConfig;
+    private $storeManager;
 
     /**
      * @param CookieManagerInterface $cookieManager
      * @param ScopeConfigInterface $scopeConfig
+     * @param StoreManagerInterface $storeManager
      */
     public function __construct(
         CookieManagerInterface $cookieManager,
         ScopeConfigInterface $scopeConfig,
+        StoreManagerInterface $storeManager
     )
     {
         $this->cookieManager = $cookieManager;
         $this->scopeConfig = $scopeConfig;
+        $this->storeManager = $storeManager;
     }
 
     /**
@@ -61,10 +68,12 @@ class CustomSectionPopup implements SectionSourceInterface
 
     /**
      * @return array
+     * @throws NoSuchEntityException
      */
     public function popupWasClosedCheck () : array{
         $result = [];
-        if ($cookieEncode = $this->cookieManager->getCookie('popupCookie')) {
+        $storeCode = $this->storeManager->getStore()->getCode();
+        if ($cookieEncode = $this->cookieManager->getCookie("popupCookie$storeCode")) {
             $cookie = urldecode($cookieEncode);
             if (str_contains($cookie, ',')) {
                 $cookieArr = explode(",", $cookie);

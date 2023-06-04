@@ -63,22 +63,24 @@
                 const map = new google.maps.Map(document.getElementById("map"), {
                     zoom: 5,
                     center: myLatlng,
+                    options: {
+                        gestureHandling: 'greedy'
+                    }
                 });
-                let infoWindow = new google.maps.InfoWindow({
-                    content: "Click the map to get Lat/Lng!",
-                    position: myLatlng,
-                });
+                var marker;
+                function placeMarker(location) {
+                    if ( marker ) {
+                        marker.setPosition(location);
+                    } else {
+                        marker = new google.maps.Marker({
+                            position: location,
+                            map: map
+                        });
+                    }
+                }
 
-                infoWindow.open(map);
                 map.addListener("click", (mapsMouseEvent) => {
-                    infoWindow.close();
-                    infoWindow = new google.maps.InfoWindow({
-                        position: mapsMouseEvent.latLng,
-                    });
-                    infoWindow.setContent(
-                        JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
-                    );
-                    infoWindow.open(map);
+                    placeMarker(mapsMouseEvent.latLng)
 
                     const latitudeInput = document.getElementById("latitude");
                     const longitudeInput = document.getElementById("longitude");

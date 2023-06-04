@@ -3,22 +3,15 @@
  * @var \Base\PopupGeneralModule\Block\Popup $block
  * @var \Magento\Framework\Escaper $escaper
  */
-
 ?>
 
 <div class="popup_general" data-bind="scope: 'section'">
-    <!-- ko if: custom_section_popup().pagesFromScope.includes(custom_section_popup().currentPageTitle) && !custom_section_popup().popupWasClosedCheck.includes(custom_section_popup().currentPageTitle) -->
-    <div class="callfor-popup">
-        <?php echo $block->getBlockFromScope(); ?>
+    <div class="popup-template" data-bind="scope: 'popup-template'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
     </div>
-    <!-- /ko -->
-    <!-- ko if: custom_section_popup().pagesFromScope.includes(custom_section_popup().currentPageTitle) && custom_section_popup().popupWasClosedCheck.includes(custom_section_popup().currentPageTitle) -->
-    <div class="popup-sticky-block">
-        <div class="popup-sticky-content">
-            <span class="popup-sticky-message"><?php echo $escaper->escapeHtml(__('Popup was closed')) ?></span>
-        </div>
+    <div class="popup-sticky-template" data-bind="scope: 'sticky-template'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
     </div>
-    <!-- /ko -->
 </div>
 <script type="text/x-magento-init">
 	{
@@ -27,19 +20,20 @@
             	"components": {
                 	"section": {
                     	"component": "Base_PopupGeneralModule/js/section"
+                	},
+                	"sticky-template": {
+                	    "component": "Base_PopupGeneralModule/js/sticky-template",
+                	    "currentStoreCode": "<?php echo $escaper->escapeJs($block->getStoreCode()); ?>"
+                	},
+                	"popup-template": {
+                	    "component": "Base_PopupGeneralModule/js/popup-template",
+                	    "cmsBlock": "<?php echo $escaper->escapeJs($block->getBlockFromScope()); ?>",
+                	    "pagesFromConfig" : "<?php echo $escaper->escapeJs($block->pagesFromConfig()); ?>",
+                        "cookieLifetime": "<?php echo $escaper->escapeJs($block->getCookieLifetime()); ?>",
+                        "currentStoreCode": "<?php echo $escaper->escapeJs($block->getStoreCode()); ?>"
                 	}
             	}
         	}
     	}
 	}
 </script>
-<script type="text/x-magento-init">
-    {
-        "*": {
-            "Base_PopupGeneralModule/js/popup" : {
-                "pagesFromConfig" : "<?php echo $block->pagesFromConfig(); ?>"
-            }
-        }
-    }
-</script>
-
