@@ -78,36 +78,39 @@
 <script>
     async function initMap() {
 
-            const { Map } = await google.maps.importLibrary("maps");
+        const { Map } = await google.maps.importLibrary("maps");
 
-            const map = new Map(document.getElementById("map"), {
-                zoom: 5,
-                center: { lat: 49, lng: 32 },
-                mapId: "DEMO_MAP_ID",
-            });
+        const map = new Map(document.getElementById("map"), {
+            zoom: 5,
+            center: { lat: 49, lng: 32 },
+            mapId: "DEMO_MAP_ID",
+        });
 
-            const wholesalersItems = document.getElementsByClassName("wholesalers-item");
-            const company = document.querySelector(".wholesalers-company")
+        const wholesalersItems = document.getElementsByClassName("wholesalers-item");
+        const company = document.querySelector(".wholesalers-company");
 
-            if (company != null) {
-                for (let i = 0; i < wholesalersItems.length; i++) {
-                    const wholesalersItem = wholesalersItems[i];
-                    const latitude = parseFloat(wholesalersItem.querySelector(".latitude").textContent);
-                    const longitude = parseFloat(wholesalersItem.querySelector(".longitude").textContent);
-                    const companyName = wholesalersItem.querySelector(".wholesalers-company").textContent
+        if (company != null) {
+            var bounds = new google.maps.LatLngBounds();
+            for (let i = 0; i < wholesalersItems.length; i++) {
+                const wholesalersItem = wholesalersItems[i];
+                const latitude = parseFloat(wholesalersItem.querySelector(".latitude").textContent);
+                const longitude = parseFloat(wholesalersItem.querySelector(".longitude").textContent);
+                const companyName = wholesalersItem.querySelector(".wholesalers-company").textContent
 
-                    const position = {lat: latitude, lng: longitude};
+                const position = {lat: latitude, lng: longitude};
 
-                    const marker = new google.maps.Marker({
-                        map: map,
-                        position: position,
-                        label: {
-                            fontWeight: 'bold',
-                            text: companyName,
-                        },
-                    });
-                }
+                const marker = new google.maps.Marker({
+                    map: map,
+                    position: position,
+                    label: {
+                        fontWeight: 'bold',
+                        text: companyName,
+                    },
+                });
+                bounds.extend(marker.getPosition());
             }
+            map.fitBounds(bounds);
+        }
     }
 
     window.initMap = initMap;
