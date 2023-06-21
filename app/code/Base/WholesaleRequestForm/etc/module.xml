@@ -3,7 +3,7 @@
     <module name="Base_WholesaleRequestForm">
         <sequence>
             <module name="Magento_Customer"/>
-            <module name="Base_UkrPoshta"/>
+            <module name="Base_UkrStatesImport"/>
         </sequence>
     </module>
 </config>

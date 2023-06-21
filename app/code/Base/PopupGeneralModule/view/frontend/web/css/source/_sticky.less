@@ -1,0 +1,78 @@
+@popup-light-color: #ffe6c0;
+@popup-red-color: #ff5555;
+@popup-general-color: #aaaaaa;
+@popup-sale-color: #ffd83c;
+@popup-special-price-color: #55ffd7;
+@popup-black-friday-color: linear-gradient(147deg, rgba(255,0,0,1) 21%, rgba(255,255,255,1) 48%, rgba(252,176,69,1) 79%);
+@popup-christmas-color: linear-gradient(147deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 40%, rgba(255,0,0,1) 40%, rgba(255,0,0,1) 60%, rgba(255,255,255,1) 60%, rgba(255,255,255,1) 80%, rgba(255,0,0,1) 80%, rgba(255,0,0,1) 100%);
+
+
+.popup-sticky-block {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    z-index: 9999;
+}
+
+.popup-sticky-content {
+    padding: 10px;
+    text-align: center;
+}
+
+.popup-sticky-message {
+    font-size: 18px;
+    color: #333;
+}
+
+
+// popup-blocks
+
+.popup-light, .popup-red, .popup-general, .popup-sale, .popup-special-price, .popup-black-friday, .popup-christmas {
+    text-align: center;
+    border-radius: 9px;
+    padding: 44px 45px;
+}
+
+.popup-light {
+    background-color: @popup-light-color;
+}
+
+.popup-red {
+    background-color: @popup-red-color;
+}
+
+.popup-general {
+    background-color: @popup-general-color;
+}
+
+.popup-sale {
+    background-color: @popup-sale-color;
+}
+
+.popup-special-price {
+    background-color: @popup-special-price-color;
+}
+
+.popup-black-friday{
+    background: @popup-black-friday-color;
+}
+
+.popup-christmas {
+    background: @popup-christmas-color;
+}
+
+
+// hide tooltip
+
+.field-tooltip .label span {
+    display: none;
+}
+
+// hide block-collapsible-nav in customer account
+
+.sidebar-main .block-collapsible-nav:not(:first-child) {
+    display: none;
+}
+

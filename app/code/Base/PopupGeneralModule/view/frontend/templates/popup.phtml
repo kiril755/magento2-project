@@ -1,0 +1,39 @@
+<?php
+/**
+ * @var \Base\PopupGeneralModule\Block\Popup $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+
+<div class="popup_general" data-bind="scope: 'section'">
+    <div class="popup-template" data-bind="scope: 'popup-template'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+    <div class="popup-sticky-template" data-bind="scope: 'sticky-template'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+</div>
+<script type="text/x-magento-init">
+	{
+    	"*": {
+        	"Magento_Ui/js/core/app": {
+            	"components": {
+                	"section": {
+                    	"component": "Base_PopupGeneralModule/js/section"
+                	},
+                	"sticky-template": {
+                	    "component": "Base_PopupGeneralModule/js/sticky-template",
+                	    "currentStoreCode": "<?php echo $escaper->escapeJs($block->getStoreCode()); ?>"
+                	},
+                	"popup-template": {
+                	    "component": "Base_PopupGeneralModule/js/popup-template",
+                	    "cmsBlock": "<?php echo $escaper->escapeJs($block->getBlockFromScope()); ?>",
+                	    "pagesFromConfig" : "<?php echo $escaper->escapeJs($block->pagesFromConfig()); ?>",
+                        "cookieLifetime": "<?php echo $escaper->escapeJs($block->getCookieLifetime()); ?>",
+                        "currentStoreCode": "<?php echo $escaper->escapeJs($block->getStoreCode()); ?>"
+                	}
+            	}
+        	}
+    	}
+	}
+</script>

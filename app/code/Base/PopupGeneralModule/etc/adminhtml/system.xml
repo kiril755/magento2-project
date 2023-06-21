@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="base" translate="label" sortOrder="400">
+            <label>Base</label>
+        </tab>
+
+        <section id="popup_general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Popup</label>
+            <tab>base</tab>
+            <resource>Base_PopupGeneralModule::config_popup_general</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_pages" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display on Pages</label>
+                    <source_model>Base\PopupGeneralModule\Model\Config\PagesOption</source_model>
+                </field>
+                <field id="cms_block_popup" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cms block for popup</label>
+                    <source_model>Base\PopupGeneralModule\Model\Config\CmsBlocks</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

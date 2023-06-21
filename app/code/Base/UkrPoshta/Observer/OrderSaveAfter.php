@@ -110,13 +110,16 @@ class OrderSaveAfter implements ObserverInterface
             $this->addressManipulation($customerId, $customerAddresses, $quote);
 
             $state = $quote->getBillingAddress()->getRegion();
+            $city = $quote->getBillingAddress()->getCity();
             $street = $quote->getBillingAddress()->getStreet();
         } else {
             $state = $quote->getShippingAddress()->getRegion();
+            $city = $quote->getShippingAddress()->getCity();
             $street = $quote->getShippingAddress()->getStreet();
         }
             $shippingAddress = $order->getShippingAddress();
             $shippingAddress->setStreet($street);
+            $shippingAddress->setCity($city);
             $shippingAddress->setRegion($state);
 
             $this->orderRepository->save($order);

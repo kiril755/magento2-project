@@ -8,3 +8,67 @@
 "Your request on pending status, please, wait for the answer.","Ваш запит в статусі обробки, будь ласка, очікуйте відповіді.",theme,frontend/Project/Ua
 "Your request is success, now you are in customer wholesale group!","Ваш запит підтверджено, відтепер ви належите до оптової групи користувачів!",theme,frontend/Project/Ua
 "Your request has been denied.","Ваш запит відхилено.",theme,frontend/Project/Ua
+
+"Wholesalers by region:", "Оптовики по областях:",theme,frontend/Project/Ua
+"All regions", "Всі регіони",theme,frontend/Project/Ua
+"Wholesalers in map:", "Мапа оптовиків:",theme,frontend/Project/Ua
+"No one wholesalers in these region :(", "У цьому регіоні немає оптовиків :(",theme,frontend/Project/Ua
+"No one wholesalers :(", "Наразі оптовиків не має :(",theme,frontend/Project/Ua
+
+"Default welcome msg!", "Привітання за замовчуванням!",theme,frontend/Project/Ua
+
+"Quick Links", "ШВИДКІ ПОСИЛАННЯ",theme,frontend/Project/Ua
+"Privacy and Cookie Policy", "Політика конфіденційності та файлів cookie",theme,frontend/Project/Ua
+"Wholesalers", "Оптовики",theme,frontend/Project/Ua
+"My Account", "Мій аккаунт",theme,frontend/Project/Ua
+"Login", "Залогінитись",theme,frontend/Project/Ua
+"My Cart", "Корзина",theme,frontend/Project/Ua
+"My Compare", "Порівняння",theme,frontend/Project/Ua
+"My Wishlist", "Список бажань",theme,frontend/Project/Ua
+
+"Payment & Shipping", "Оплата та доставка",theme,frontend/Project/Ua
+"Terms of Use", "Умови використання",theme,frontend/Project/Ua
+"Payment Methods", "Методи оплати",theme,frontend/Project/Ua
+"Shipping Guide", "Доставка",theme,frontend/Project/Ua
+"Order Tracking", "Відстеження замовлення",theme,frontend/Project/Ua
+"Return % Exchange", "Повернення % Обмін",theme,frontend/Project/Ua
+
+"Quick Contact", "Швидкий контакт",theme,frontend/Project/Ua
+"Phone: ", "Телефон: ",theme,frontend/Project/Ua
+"Email: ", "Епошта: ",theme,frontend/Project/Ua
+
+"What client say", "Відгуки клієнтів",theme,frontend/Project/Ua
+"Fashion Designer", "Модельєр",theme,frontend/Project/Ua
+"Businessman", "Бізнесмен",theme,frontend/Project/Ua
+"I recently purchased a Casio watch, and I'm impressed with its quality and style. The sleek design complements both casual and formal outfits perfectly. The stainless steel case feels sturdy, and the timekeeping accuracy is spot on. The leather strap adds a touch of sophistication. Overall, I'm extremely satisfied with my Casio watch and highly recommend it.", "Нещодавно я придбав годинник Casio, і я вражений його якістю та стилем. Витончений дизайн ідеально доповнює як повсякденне, так і офіційне вбрання. Корпус із нержавіючої сталі виглядає міцним, а точність відліку часу – на висоті. Шкіряний ремінець додає нотку вишуканості. Загалом я дуже задоволений своїм годинником Casio і дуже рекомендую його.",theme,frontend/Project/Ua
+"I've been wearing my Casio watch for a few weeks now, and I couldn't be happier. The classic design never goes out of style. The craftsmanship is excellent, with attention to detail evident in every aspect. The stainless steel case and bracelet have a premium feel, and the automatic movement ensures accurate timekeeping. The Casio watch has exceeded my expectations, and I highly recommend it.", "Я ношу свій годинник Casio вже кілька тижнів, і я дуже щаслива. Класичний дизайн ніколи не виходить з моди. Майстерність чудова, увага до деталей помітна в кожному аспекті. Корпус і браслет із нержавіючої сталі створюють відчуття преміум-класу, а автоматичний механізм забезпечує точне вимірювання часу. Годинник Casio перевершив мої очікування, і я дуже рекомендую його.",theme,frontend/Project/Ua
+
+"Recent Posts", "Останні новини",theme,frontend/Project/Ua
+"Stylish Casio Watches for Every Occasion", "Стильні годинники Casio на будь-який випадок",theme,frontend/Project/Ua
+"Elevate your style with Casio watches, known for their exceptional quality and versatility. Find the perfect timepiece for any occasion!", "Вдоскональте свій стиль із годинниками Casio, відомими своєю винятковою якістю та універсальністю. Знайдіть ідеальний годинник для будь-якого випадку!",theme,frontend/Project/Ua
+"Diesel Watches: Unleash Your Bold Side", "Годинники Diesel: розкрийте свою сміливість",theme,frontend/Project/Ua
+"Make a powerful statement with Diesel watches, featuring unique designs and rugged craftsmanship that exude confidence.", "Зробіть сильну заяву за допомогою годинників Diesel, які вирізняються унікальним дизайном і міцною майстерністю, які випромінюють впевненість.",theme,frontend/Project/Ua
+"Casio vs. Diesel: Style and Functionality Clash", "Casio проти Diesel: зіткнення стилю та функціональності",theme,frontend/Project/Ua
+"Explore the clash of style and functionality between Casio and Diesel watches and choose the perfect timepiece for your individuality.", "Дослідіть зіткнення стилю та функціональності між годинниками Casio та Diesel і виберіть ідеальний годинник для своєї індивідуальності.",theme,frontend/Project/Ua
+
+
+"Review", "Відгук",theme,frontend/Project/Ua
+"Create New Customer Account", "Створити новий обліковий запис клієнта",theme,frontend/Project/Ua
+"Allow remote shopping assistance", "Дозволити дистанційну допомогу в покупках",theme,frontend/Project/Ua
+"Show Password", "Показати пароль",theme,frontend/Project/Ua
+"Customer Login", "Вхід клієнта",theme,frontend/Project/Ua
+"The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.", "Вхід в обліковий запис був неправильним або ваш обліковий запис тимчасово вимкнено. Зачекайте та повторіть спробу пізніше.",theme,frontend/Project/Ua
+"Please enter a valid email address (Ex: johndoe@domain.com).", "Введіть дійсну адресу електронної пошти (наприклад: johndoe@domain.com).",theme,frontend/Project/Ua
+"Account Dashboard", "Інформаційна панель",theme,frontend/Project/Ua
+"You have no other address entries in your address book.", "У вашій адресній книзі немає інших адресних записів.",theme,frontend/Project/Ua
+"Short Description", "Короткий опис",theme,frontend/Project/Ua
+
+"Your request is success, now you are in wholesale group!", "Ваш запит схвалено, відтепер ви в оптовій групі!",theme,frontend/Project/Ua
+"Please, choose your location:", "Будьласка, виберіть ваше місцезнаходження:",theme,frontend/Project/Ua
+"ID Image (optional):", "Фото (опціонально)",theme,frontend/Project/Ua
+"Region:", "Область:",theme,frontend/Project/Ua
+
+
+
+
+

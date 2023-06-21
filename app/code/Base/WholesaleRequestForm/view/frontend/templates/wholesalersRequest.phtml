@@ -6,7 +6,7 @@ $wholesalers = $block->getWholesalersData();
 ?>
 <?php if(count($wholesalers)): ?>
     <?php foreach ($wholesalers as $wholesaler): ?>
-        <li class="wholesalers-item">
+        <li class="wholesalers-item wholesalers-item_info">
             <?php if ($wholesaler['image'] != "null"): ?>
                 <img class="company-image" width="100" height="100"
                      alt="image"
@@ -33,7 +33,7 @@ $wholesalers = $block->getWholesalersData();
         </li>
     <?php endforeach; ?>
     <?php else: ?>
-    <li class="wholesalers-item">
-        <p>No one wholesalers in these region :(</p>
+    <li class="wholesalers-item no-one_wholesalers">
+        <p class="no-one_wholesalers_message"><?php echo $block->escapeHtml(__('No one wholesalers in these region :(')) ?></p>
     </li>
 <?php endif; ?>

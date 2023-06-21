@@ -1,39 +1,121 @@
-"Wholesale request","Заявление на опт",theme,frontend/Project/Ua
-"Wholesale form request","Заявление на опт",theme,frontend/Project/Ua
-"INN:","ИНН:",theme,frontend/Project/Ua
-"Text:","Текст:",theme,frontend/Project/Ua
-"Describe please, why you need a wholesale group","Опишите пожалуйста, почему вам нужна оптовая группа",theme,frontend/Project/Ua
-"Submit","Отправить",theme,frontend/Project/Ua
-", your request successfully sent, please wait for the answer!",", ваш запрос успешно отправлен, ждите ответа!",theme,frontend/Project/Ua
-"Your request on pending status, please, wait for the answer.","Ваш запрос в статусе обработки, пожалуйста, ждите ответа.",theme,frontend/Project/Ua
-"Your request is success, now you are in customer wholesale group!","Ваш запрос подтвержден, теперь вы относитесь к оптовой группе пользователей!",theme,frontend/Project/Ua
-"Your request has been denied.","Ваш запрос отклонен.",theme,frontend/Project/Ua
+"Wholesale request","Заявление на опт",theme,frontend/Project/Ru
+"Wholesale form request","Заявление на опт",theme,frontend/Project/Ru
+"INN:","ИНН:",theme,frontend/Project/Ru
+"Text:","Текст:",theme,frontend/Project/Ru
+"Describe please, why you need a wholesale group","Опишите пожалуйста, почему вам нужна оптовая группа",theme,frontend/Project/Ru
+"Submit","Отправить",theme,frontend/Project/Ru
+", your request successfully sent, please wait for the answer!",", ваш запрос успешно отправлен, ждите ответа!",theme,frontend/Project/Ru
+"Your request on pending status, please, wait for the answer.","Ваш запрос в статусе обработки, пожалуйста, ждите ответа.",theme,frontend/Project/Ru
+"Your request is success, now you are in customer wholesale group!","Ваш запрос подтвержден, теперь вы относитесь к оптовой группе пользователей!",theme,frontend/Project/Ru
+"Your request has been denied.","Ваш запрос отклонен.",theme,frontend/Project/Ru
 
-"Вінницька область","Винницкая область",theme,frontend/Project/Ua
-"Волинська область","Волынская область",theme,frontend/Project/Ua
-"Дніпропетровська область","Днепропетровская область",theme,frontend/Project/Ua
-"Закарпатська область","Закарпатская область",theme,frontend/Project/Ua
-"Запорізька область","Запорожская область",theme,frontend/Project/Ua
-"Івано-Франківська область","Ивано-Франковская область",theme,frontend/Project/Ua
-"Кіровоградська область","Кировоградская область",theme,frontend/Project/Ua
-"Луганська область","Луганская область",theme,frontend/Project/Ua
-"Донецька область","Донецкая область",theme,frontend/Project/Ua
-"Житомирська область","Житомирская область",theme,frontend/Project/Ua
-"Київська область","Киевская область",theme,frontend/Project/Ua
-"Львівська область","Львовская область",theme,frontend/Project/Ua
-"Миколаївська область","Николаевская область",theme,frontend/Project/Ua
-"Одеська область","Одесская область",theme,frontend/Project/Ua
-"Полтавська область","Полтавская область",theme,frontend/Project/Ua
-"Рівненська область","Ровенская область",theme,frontend/Project/Ua
-"Сумська область","Сумская область",theme,frontend/Project/Ua
-"Тернопільська область","Тернопольская область",theme,frontend/Project/Ua
-"Харківська область","Харьковская область",theme,frontend/Project/Ua
-"Херсонська область","Херсонская область",theme,frontend/Project/Ua
-"Хмельницька область","Хмельницкая область",theme,frontend/Project/Ua
-"Черкаська область","Черкасская область",theme,frontend/Project/Ua
-"Чернівецька область","Черновицкая область",theme,frontend/Project/Ua
-"Чернігівська область","Черниговская область",theme,frontend/Project/Ua
-"місто Київ","город Киев",theme,frontend/Project/Ua
+"Вінницька область","Винницкая область",theme,frontend/Project/Ru
+"Волинська область","Волынская область",theme,frontend/Project/Ru
+"Дніпропетровська область","Днепропетровская область",theme,frontend/Project/Ru
+"Закарпатська область","Закарпатская область",theme,frontend/Project/Ru
+"Запорізька область","Запорожская область",theme,frontend/Project/Ru
+"Івано-Франківська область","Ивано-Франковская область",theme,frontend/Project/Ru
+"Кіровоградська область","Кировоградская область",theme,frontend/Project/Ru
+"Луганська область","Луганская область",theme,frontend/Project/Ru
+"Донецька область","Донецкая область",theme,frontend/Project/Ru
+"Житомирська область","Житомирская область",theme,frontend/Project/Ru
+"Київська область","Киевская область",theme,frontend/Project/Ru
+"Львівська область","Львовская область",theme,frontend/Project/Ru
+"Миколаївська область","Николаевская область",theme,frontend/Project/Ru
+"Одеська область","Одесская область",theme,frontend/Project/Ru
+"Полтавська область","Полтавская область",theme,frontend/Project/Ru
+"Рівненська область","Ровенская область",theme,frontend/Project/Ru
+"Сумська область","Сумская область",theme,frontend/Project/Ru
+"Тернопільська область","Тернопольская область",theme,frontend/Project/Ru
+"Харківська область","Харьковская область",theme,frontend/Project/Ru
+"Херсонська область","Херсонская область",theme,frontend/Project/Ru
+"Хмельницька область","Хмельницкая область",theme,frontend/Project/Ru
+"Черкаська область","Черкасская область",theme,frontend/Project/Ru
+"Чернівецька область","Черновицкая область",theme,frontend/Project/Ru
+"Чернігівська область","Черниговская область",theme,frontend/Project/Ru
+"місто Київ","город Киев",theme,frontend/Project/Ru
+
+
+"Wholesalers by region:", "Оптовики по областях:",theme,frontend/Project/Ua
+"All regions", "Все регионы",theme,frontend/Project/Ua
+"Wholesalers in map:", "Карта оптовиков:",theme,frontend/Project/Ua
+"No one wholesalers in these region :(", "В этом регионе нет оптовиков :(",theme,frontend/Project/Ua
+"No one wholesalers :(", "На данный момент оптовиков нет :(",theme,frontend/Project/Ua
+
+"Default welcome msg!", "Приветствие по умолчанию!",theme,frontend/Project/Ua
+
+"Quick Links", "Быстрые ссылки",theme,frontend/Project/Ua
+"Privacy and Cookie Policy", "Политика конфиденциальности и файлов cookie",theme,frontend/Project/Ua
+"Wholesalers", "Оптовики",theme,frontend/Project/Ua
+"My Account", "Мой аккаунт",theme,frontend/Project/Ua
+"Login", "Залогиниться",theme,frontend/Project/Ua
+"My Cart", "Корзина",theme,frontend/Project/Ua
+"My Compare", "Сравнение",theme,frontend/Project/Ua
+"My Wishlist", "Список желаемого",theme,frontend/Project/Ua
+
+"Payment & Shipping", "Оплата и доставка",theme,frontend/Project/Ua
+"Terms of Use", "Условия использования",theme,frontend/Project/Ua
+"Payment Methods", "Способы оплаты",theme,frontend/Project/Ua
+"Shipping Guide", "Доставка",theme,frontend/Project/Ua
+"Order Tracking", "Отслеживание заказа",theme,frontend/Project/Ua
+"Return % Exchange", "Возврат % Обмен",theme,frontend/Project/Ua
+
+"Quick Contact", "Быстрый контакт",theme,frontend/Project/Ua
+"Phone: ", "Телефон: ",theme,frontend/Project/Ua
+"Email: ", "Епочта: ",theme,frontend/Project/Ua
+
+"What client say", "Отзывы клиентов",theme,frontend/Project/Ua
+"Fashion Designer", "Модельер",theme,frontend/Project/Ua
+"Businessman", "Бизнесмен",theme,frontend/Project/Ua
+"I recently purchased a Casio watch, and I'm impressed with its quality and style. The sleek design complements both casual and formal outfits perfectly. The stainless steel case feels sturdy, and the timekeeping accuracy is spot on. The leather strap adds a touch of sophistication. Overall, I'm extremely satisfied with my Casio watch and highly recommend it.", "Недавно я приобрел часы Casio, и я поражен его качеством и стилем. Изящный дизайн идеально дополняет как обычный, так и официальный наряд. Корпус из нержавеющей стали выглядит крепким, а точность отсчета времени – на высоте. Кожаный ремешок придает нотку изысканности. В общем я очень доволен своими часами Casio и очень рекомендую их.",theme,frontend/Project/Ua
+"I've been wearing my Casio watch for a few weeks now, and I couldn't be happier. The classic design never goes out of style. The craftsmanship is excellent, with attention to detail evident in every aspect. The stainless steel case and bracelet have a premium feel, and the automatic movement ensures accurate timekeeping. The Casio watch has exceeded my expectations, and I highly recommend it.", "Я ношу свои часы Casio уже несколько недель, и я очень счастлива. Классический дизайн никогда не выходит из моды. Мастерство замечательное, внимание к деталям заметно в каждом аспекте. Корпус и браслет из нержавеющей стали создают ощущение премиум-класса, а автоматический механизм обеспечивает точное измерение времени. Часы Casio превзошли мои ожидания, и я очень рекомендую его.",theme,frontend/Project/Ua
+
+"Recent Posts", "Последние новости",theme,frontend/Project/Ua
+"Stylish Casio Watches for Every Occasion", "Стильные часы Casio на любой случай",theme,frontend/Project/Ua
+"Elevate your style with Casio watches, known for their exceptional quality and versatility. Find the perfect timepiece for any occasion!", "Совершенствуйте свой стиль с часами Casio, известными своим исключительным качеством и универсальностью. Найдите идеальные часы для любого случая!",theme,frontend/Project/Ua
+"Diesel Watches: Unleash Your Bold Side", "Часы Diesel: раскройте свою смелость",theme,frontend/Project/Ua
+"Make a powerful statement with Diesel watches, featuring unique designs and rugged craftsmanship that exude confidence.", "Сделайте сильное заявление с помощью часов Diesel, которые отличаются уникальным дизайном и крепким мастерством, излучающими уверенность.",theme,frontend/Project/Ua
+"Casio vs. Diesel: Style and Functionality Clash", "Casio против Diesel: столкновение стиля и функциональности",theme,frontend/Project/Ua
+"Explore the clash of style and functionality between Casio and Diesel watches and choose the perfect timepiece for your individuality.", "Исследуйте столкновение стиля и функциональности между часами Casio и Diesel и выберите идеальные часы для своей индивидуальности.",theme,frontend/Project/Ua
+
+
+"Review", "Отзыв",theme,frontend/Project/Ua
+"Create New Customer Account", "Создать новую учетную запись клиента",theme,frontend/Project/Ua
+"Allow remote shopping assistance", "Разрешить дистанционную помощь в покупках",theme,frontend/Project/Ua
+"Show Password", "Показать пароль",theme,frontend/Project/Ua
+"Customer Login", "Вход клиента",theme,frontend/Project/Ua
+"The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.", "Вход в аккаунт был неверен или ваш аккаунт временно отключен. Подождите и повторите попытку позже.",theme,frontend/Project/Ua
+"Please enter a valid email address (Ex: johndoe@domain.com).", "Пожалуйста введите действительную почту (например: johndoe@domain.com).",theme,frontend/Project/Ua
+"Account Dashboard", "Информационная панель",theme,frontend/Project/Ua
+"You have no other address entries in your address book.", "В адресной книге нет других адресных записей.",theme,frontend/Project/Ua
+"Short Description", "Краткое описание",theme,frontend/Project/Ua
+
+"Your request is success, now you are in wholesale group!", "Ваш запрос одобрен, теперь вы в оптовой группе!",theme,frontend/Project/Ua
+"Please, choose your location:", "Пожалуйста, выберите ваше местонахождение:",theme,frontend/Project/Ua
+"ID Image (optional):", "Фото (опционально)",theme,frontend/Project/Ua
+"Region:", "Область:",theme,frontend/Project/Ua
+
+
+
+
+"Enter your email address", "Введите ваш адрес электронной почты",theme,frontend/Project/Ua
+"My Downloadable Products", "Мои загружаемые продукты",theme,frontend/Project/Ua
+"Stored Payment Methods", "Способы оплаты",theme,frontend/Project/Ua
+"My Product Reviews", "Мои отзывы",theme,frontend/Project/Ua
+"Newsletter Subscriptions", "Подписк на новости",theme,frontend/Project/Ua
+"Newsletters", "Новости",theme,frontend/Project/Ua
+"Default Shipping Address", "Адрес доставки по умолчанию",theme,frontend/Project/Ua
+"Recent Orders", "Недавние заказы",theme,frontend/Project/Ua
+"Subscribe", "Подписатся",theme,frontend/Project/Ua
+"Recently Ordered", "Недавно заказанные",theme,frontend/Project/Ua
+"Nickname", "Имя",theme,frontend/Project/Ua
+"Be the first to review this product", "Будьте первым кто оценит этот продукт",theme,frontend/Project/Ua
+"You're reviewing:", "Вы обозреваете:",theme,frontend/Project/Ua
+
+
+
+
+
 
 
 

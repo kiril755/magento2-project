@@ -88,10 +88,12 @@ class LayoutProcessor
         }
 
         $foundState = false;
+        $city = '';
         $containsProhibitedValue = false;
 
         if ($currentCustomerAddress) {
             $region = $currentCustomerAddress->getRegion();
+            $city = $currentCustomerAddress->getCity();
             $street = $currentCustomerAddress->getStreet()[0];
 
             $prohibitedValues = ['Відділення', 'Отделение', 'Поштомат', 'Почтомат', 'Пункт'];
@@ -134,6 +136,23 @@ class LayoutProcessor
             'sortOrder' => 2,
             'options' => $options,
             'value' => $foundState && isset($foundState['value']) ? $foundState['value'] : $options[0]
+        ];
+
+        // ukrposhta city field
+        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
+        ['shippingAddress']['children']['ukrposhta-shipping-method-fields']['children']['ukrposhta_city_field'] = [
+            'component' => "Magento_Ui/js/form/element/abstract",
+            'config' => [
+                'customScope' => 'shippingAddress.extension_attributes',
+                'template' => 'ui/form/field',
+                'elementTmpl' => "ui/form/element/input"
+            ],
+            'dataScope' => 'shippingAddress.extension_attributes.ukrposhta_city_field',
+            'label' => "Місто",
+            'provider' => 'checkoutProvider',
+            'visible' => $visible,
+            'validation' => $validation,
+            'value' => $city
         ];
 
         // ukrposhta_street_field
@@ -212,6 +231,22 @@ class LayoutProcessor
             'sortOrder' => 2,
             'options' => $options,
             'value' => $foundState && isset($foundState['value']) ? $foundState['value'] : $options[0]
+        ];
+
+        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
+        ['shippingAddress']['children']['free-shipping-method-fields']['children']['free_city_field'] = [
+            'component' => "Magento_Ui/js/form/element/abstract",
+            'config' => [
+                'customScope' => 'shippingAddress.extension_attributes',
+                'template' => 'ui/form/field',
+                'elementTmpl' => "ui/form/element/input"
+            ],
+            'dataScope' => 'shippingAddress.extension_attributes.free_city_field',
+            'label' => "Місто",
+            'provider' => 'checkoutProvider',
+            'visible' => $visible,
+            'validation' => $validation,
+            'value' => $city
         ];
 
         $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']

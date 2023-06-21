@@ -1,0 +1,13 @@
+diff --git a/Controller/Cart/Add.php b/Controller/Cart/Add.php
+index ea02c43..fdb0ca2 100644
+--- a/Controller/Cart/Add.php
++++ b/Controller/Cart/Add.php
+@@ -140,7 +140,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
+             if (!$this->_checkoutSession->getNoCartRedirect(true)) {
+                 if ($this->shouldRedirectToCart()) {
+                     $message = __(
+-                        'You added %1 to your shopping cart.',
++                        '%1 Hello world!',
+                         $product->getName()
+                     );
+                     $this->messageManager->addSuccessMessage($message);

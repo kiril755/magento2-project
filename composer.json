@@ -18,6 +18,7 @@
     },
     "version": "2.4.6",
     "require": {
+        "cweagans/composer-patches": "^1.7",
         "magento/composer-dependency-version-audit-plugin": "~0.1",
         "magento/composer-root-update-plugin": "~2.0",
         "magento/product-community-edition": "2.4.6",
@@ -85,6 +86,13 @@
         }
     ],
     "extra": {
-        "magento-force": "override"
+        "magento-force": "override",
+        "composer-exit-on-patch-failure": true,
+        "patches": {
+            "magento/module-checkout": {
+                "Change success ms add to cart": "patches/composer/magento/module-checkout/change_success_ms_add_to_cart.patch",
+                "Change right message": "patches/composer/magento/module-checkout/change_right_message.patch"
+            }
+        }
     }
 }
