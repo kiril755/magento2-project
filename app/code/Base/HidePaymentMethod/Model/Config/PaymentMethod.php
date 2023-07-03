@@ -4,22 +4,31 @@ declare(strict_types=1);
 namespace Base\HidePaymentMethod\Model\Config;
 
 use Magento\Framework\Data\OptionSourceInterface;
-use Magento\Cms\Model\ResourceModel\Block\CollectionFactory;
+use \Magento\Framework\App\Config\ScopeConfigInterface;
+use \Magento\Payment\Model\Config;
+
 class PaymentMethod implements OptionSourceInterface
 {
     /**
-     * @var CollectionFactory
+     * @var ScopeConfigInterface
      */
-    private $collectionFactory;
+    protected $_appConfigScopeConfigInterface;
+    /**
+     * @var Config
+     */
+    protected $_paymentModelConfig;
 
     /**
-     * @param CollectionFactory $collectionFactory
+     * @param ScopeConfigInterface $appConfigScopeConfigInterface
+     * @param Config               $paymentModelConfig
      */
     public function __construct(
-        CollectionFactory $collectionFactory
-    )
-    {
-        $this->collectionFactory = $collectionFactory;
+        ScopeConfigInterface $appConfigScopeConfigInterface,
+        Config $paymentModelConfig
+    ) {
+
+        $this->_appConfigScopeConfigInterface = $appConfigScopeConfigInterface;
+        $this->_paymentModelConfig = $paymentModelConfig;
     }
 
     /**
@@ -27,12 +36,16 @@ class PaymentMethod implements OptionSourceInterface
      */
     public function toOptionArray() : array
     {
-        $options = [];
-        $collection = $this->collectionFactory->create();
-        $blocks = $collection->addFieldToFilter('identifier', ['like' => 'popup%'])->getItems();
-        foreach ($blocks as $block) {
-            $options[] = ['value' => $block->getId(), 'label' => $block->getTitle()];
+        $payments = $this->_paymentModelConfig->getActiveMethods();
+        $methods = array();
+        foreach ($payments as $paymentCode => $paymentModel) {
+            $paymentTitle = $this->_appConfigScopeConfigInterface
+                ->getValue('payment/'.$paymentCode.'/title');
+            $methods[$paymentCode] = array(
+                'label' => $paymentTitle,
+                'value' => $paymentCode
+            );
         }
-        return $options;
+        return $methods;
     }
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <hide_payment_method>
+            <general>
+                <enable>0</enable>
+                <payment_method>checkmo</payment_method>
+                <shipping_method>freeshipping_freeshipping</shipping_method>
+            </general>
+        </hide_payment_method>
+    </default>
+</config>
