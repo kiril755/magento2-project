@@ -14,13 +14,11 @@
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="payment_method" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Payment method</label>
-                    <source_model>Base\HidePaymentMethod\Model\Config\PaymentMethod</source_model>
-                </field>
-                <field id="shipping_method" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Shipping method</label>
-                    <source_model>Magento\Shipping\Model\Config\Source\Allmethods</source_model>
+                <field id="hide_fields" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Choose payment method and shipping method</label>
+                    <backend_model>Base\HidePaymentMethod\Block\Adminhtml\Config\Backend\ArraySerialized</backend_model>
+                    <frontend_model>Base\HidePaymentMethod\Block\Adminhtml\DynamicField</frontend_model>
                 </field>
             </group>
         </section>

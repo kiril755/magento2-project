@@ -44,18 +44,20 @@ class PaymentMethodAvailable implements ObserverInterface
         $shippingMethod = $this->cart->getQuote()->getShippingAddress()->getShippingMethod();
         $paymentMethod = $observer->getEvent()->getMethodInstance()->getCode();
 
-        $shippingMethodConfig = $this->scopeConfig->getValue(
-            'hide_payment_method/general/shipping_method',
-            ScopeInterface::SCOPE_STORE,
-        );
-        $paymentMethodConfig = $this->scopeConfig->getValue(
-            'hide_payment_method/general/payment_method',
-            ScopeInterface::SCOPE_STORE,
+        $configValue = $this->scopeConfig->getValue(
+            'hide_payment_method/general/hide_fields',
+            ScopeInterface::SCOPE_STORE
         );
 
-        if ($paymentMethod == $paymentMethodConfig && $shippingMethod == $shippingMethodConfig) {
-            $checkResult = $observer->getEvent()->getResult();
-            $checkResult->setData('is_available', false);
+        $configData = json_decode($configValue, true);
+        foreach ($configData as $rowId => $row) {
+            $shippingMethodConfig = $row['shipping_method'];
+            $paymentMethodConfig = $row['payment_method'];
+
+            if ($paymentMethod == $paymentMethodConfig && $shippingMethod == $shippingMethodConfig) {
+                $checkResult = $observer->getEvent()->getResult();
+                $checkResult->setData('is_available', false);
+            }
         }
     }
 }

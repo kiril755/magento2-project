@@ -4,8 +4,6 @@
         <hide_payment_method>
             <general>
                 <enable>0</enable>
-                <payment_method>checkmo</payment_method>
-                <shipping_method>freeshipping_freeshipping</shipping_method>
             </general>
         </hide_payment_method>
     </default>
