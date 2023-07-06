@@ -6,8 +6,9 @@ namespace Base\HidePaymentMethod\Block\Adminhtml\FormCustom\FieldCustom;
 use Magento\Framework\View\Element\Html\Select;
 use Magento\Backend\Block\Template\Context;
 use Magento\Payment\Model\Config;
+use Base\HidePaymentMethod\Api\SelectInterface;
 
-class PaymentMethod extends Select
+class PaymentMethod extends Select implements SelectInterface
 {
     /**
      * @var Config
@@ -23,8 +24,7 @@ class PaymentMethod extends Select
         Config $paymentConfig,
         Context $context,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $data);
         $this->paymentConfig = $paymentConfig;
     }
@@ -48,6 +48,8 @@ class PaymentMethod extends Select
     }
 
     /**
+     * Rendering html content
+     *
      * @return string
      */
     public function _toHtml() : string
@@ -59,6 +61,8 @@ class PaymentMethod extends Select
     }
 
     /**
+     * Get source options
+     *
      * @return array
      */
     private function getSourceOptions() : array
@@ -71,7 +75,6 @@ class PaymentMethod extends Select
             if (is_object($paymentCode)) {
                 break;
             }
-
             $options[] = [
                 'value' => $paymentCode,
                 'label' => $paymentTitle

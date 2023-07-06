@@ -38,13 +38,14 @@ class ArraySerialized extends ConfigValue
         AbstractResource $resource = null,
         AbstractDb $resourceCollection = null,
         array $data = []
-    )
-    {
-        $this->serializer = $serializer;
+    ) {
         parent::__construct($context, $registry, $config, $cacheTypeList, $resource, $resourceCollection, $data);
+        $this->serializer = $serializer;
     }
 
     /**
+     * Before save function
+     *
      * @return void
      */
     public function beforeSave() : void
@@ -56,6 +57,8 @@ class ArraySerialized extends ConfigValue
     }
 
     /**
+     * After load function
+     *
      * @return void
      */
     protected function _afterLoad() : void

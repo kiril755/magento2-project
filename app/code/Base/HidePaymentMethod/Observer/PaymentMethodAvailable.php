@@ -7,6 +7,7 @@ use Magento\Framework\Event\ObserverInterface;
 use \Magento\Checkout\Model\Cart;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
+
 class PaymentMethodAvailable implements ObserverInterface
 {
 
@@ -14,6 +15,9 @@ class PaymentMethodAvailable implements ObserverInterface
      * @var Cart
      */
     protected $cart;
+    /**
+     * @var ScopeConfigInterface
+     */
     private $scopeConfig;
 
     /**
@@ -23,12 +27,14 @@ class PaymentMethodAvailable implements ObserverInterface
     public function __construct(
         Cart $cart,
         ScopeConfigInterface $scopeConfig
-    ){
+    ) {
         $this->cart = $cart;
         $this->scopeConfig = $scopeConfig;
     }
 
     /**
+     * Hide payment method for specific (in config) shipping method
+     *
      * @param \Magento\Framework\Event\Observer $observer
      * @return void
      */
